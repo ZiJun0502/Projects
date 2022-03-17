@@ -52,10 +52,11 @@ public:
                 s+="X";
             num%=10;
         }
-        if(num >=9)
+        if(num ==9)
         {
             s+="IX";
             num-=9;
+
         }
         if(num / 5 > 0)
         {
@@ -63,7 +64,7 @@ public:
                 s+="V";
             num%=5;
         }
-        if(num >= 4)
+        if(num == 4)
         {
             s+="IV";
             num-=4;
