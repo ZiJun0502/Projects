@@ -19,7 +19,7 @@ public:
             }
 
         }
-        temp*=to;
+        temp=temp*to;
         return temp;
     }
 };
