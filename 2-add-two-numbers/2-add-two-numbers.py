@@ -9,7 +9,8 @@ class linklist:
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         result=[]
-        st1=st2=''
+        st1=''
+        st2=''
         while True:
             if l1==None:
                 break
