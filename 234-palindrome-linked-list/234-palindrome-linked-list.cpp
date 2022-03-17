@@ -26,7 +26,8 @@ public:
         }
         if(len %2 != 0) mid = mid ->next;
         // reverse half of the linked list
-        ListNode* next = NULL, * prev = NULL;
+        ListNode* next = NULL;
+        ListNode* prev = NULL;
         iter = head;
         for(int i = 0 ; i < len/2 ; i++)
         {
