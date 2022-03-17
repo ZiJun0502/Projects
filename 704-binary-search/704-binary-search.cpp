@@ -1,7 +1,7 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int r = nums.size() -1,l=0,mid;
+        int r = nums.size() -1,l=0,mid = 0;
         while(l<=r)
         {
             mid = (r + l) / 2;
