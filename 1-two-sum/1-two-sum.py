@@ -3,6 +3,6 @@ class Solution:
         dd = {}
         for i, num in enumerate(nums):
             diff = target - num
-            if num in dd.keys():
+            if num in dd:
                 return [dd[num], i]
             dd[diff]=i
