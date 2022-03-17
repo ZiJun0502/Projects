@@ -1,8 +1,6 @@
-#define IOS ios_base::sync_with_stdio(0); cin.tie(0);
 class Solution {
 public:
     string convert(string s, int numRows) {
-        IOS;
         // distance between the first char and next char
         int dist = 2 * (numRows - 1);
         // when count == 1, we print s[first + dist +- count], the chars in front of and right behind the next pos
