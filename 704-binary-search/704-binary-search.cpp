@@ -1,7 +1,8 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int r = nums.size()-1,l=0;
+        int r = nums.size()-1;
+        int l=0;
         while(l<=r)
         {
             if(nums[(r+l)/2]==target)
