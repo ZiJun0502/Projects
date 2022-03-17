@@ -6,7 +6,7 @@ public:
         while(x > temp)
         {
             temp = temp*10 + x%10;
-            x = x/10;
+            x /= 10;
         }
         if (temp == x || temp/10 == x) return true;
         return false;
