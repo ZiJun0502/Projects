@@ -5,8 +5,8 @@ public:
         if(num / 1000 > 0)
         {
             for(int i = 0; i < num / 1000;i++)
-                s+="M";
-            num%=1000;
+                s += "M";
+            num %= 1000;
         }
         if(num >= 900)
         {
@@ -62,9 +62,9 @@ public:
         {
             for(int i = 0; i < num / 5;i++)
                 s+="V";
-            num%=5;
+            num %= 5;
         }
-        if(num == 4)
+        if(num >= 4)
         {
             s+="IV";
             num-=4;
