@@ -10,10 +10,7 @@ public:
     void push(int val) {
         freq[val]++;
         top[freq[val]].push(val);
-        if(freq[val] > max)
-        {
-            max = freq[val];
-        }
+        max = freq[val] > max ? freq[val]:max;
     }
     
     int pop() {
