@@ -18,8 +18,7 @@ public:
     
     int pop() {
         int topp = top[max].top();
-        top[max].pop();
-        cout << topp;        
+        top[max].pop();       
         freq[topp]--;
         if(top[max].empty()) max--;
         return topp;
