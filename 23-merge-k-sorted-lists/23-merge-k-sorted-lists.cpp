@@ -10,37 +10,34 @@
  */
 class Solution {
 public:
+    struct comp{
+        bool operator()(const ListNode* a, const ListNode* b) {
+          return a->val > b->val;
+        }
+    };
     ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if(lists.size() == 0) return NULL;
+        priority_queue<ListNode*, vector<ListNode*>, comp> pq;
+        for(auto i : lists)
+            if (i != NULL)
+                pq.push(i);
+        if(pq.empty()) return NULL;
+        ListNode* head = new ListNode(pq.top()->val);
+        ListNode* iter = head; 
+        ListNode* temp= pq.top()->next;
+        pq.pop();
+        if (temp != NULL)
+        pq.push(temp);
         
-        vector<int>baap;
-        
-        for(int i = 0; i<lists.size(); i++){
-            ListNode*temp = lists[i];
-            while(temp != NULL){
-                baap.push_back(temp->val);
-                temp = temp->next;
-            }
+        while(pq.empty() != 1)
+        {
+            temp = pq.top();
+            iter->next = temp;
+            iter = iter->next;
+            pq.pop();
+            if(temp->next != NULL)
+            pq.push(temp->next);
         }
-        
-        sort(baap.begin(), baap.end());
-        
-        ListNode*si = NULL;
-        ListNode*ei = NULL;  
-        
-        for(int i = 0; i<baap.size(); i++){
-            ListNode*te = new ListNode(baap[i]);
-            if(si == NULL){
-                si = te;
-                ei = te;
-            }
-
-            else{
-
-                ei->next = te;
-                ei = te;
-                
-            }
-        }
-        return si;
+        return head;
     }
 };
