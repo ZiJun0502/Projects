@@ -20,11 +20,6 @@ public://using min heap
     }
     void heapify(int i)
     {
-        // for(auto i : arr)
-        // {
-        //     cout << i->val <<' ';
-        // }
-        // cout <<'\n';
         if(i*2+1 <= len)
         {
             if(i*2+2 <= len)
@@ -60,15 +55,10 @@ public://using min heap
         //     cout << i->val <<' ';
         // }
         // cout <<'\n';
-        int len = arr.size()-1;
-        if(arr[len]->val < arr[(len-1)/2]->val)
-        {
-            swapNode(&arr[len],&arr[(len-1)/2]);
-        }
-        heapify_b((len-1)/2);
+        heapify_b(arr.size()-1);
         
     }
-    void heapify_b(int i)
+    void heapify_b(int i)//bottom up heapify for insertion
     {
         if(i == 0)
         {
@@ -88,12 +78,6 @@ public://using min heap
         ListNode* node = new ListNode(val);
         return node;
     }
-    void swapVal(ListNode* node1, ListNode* node2)
-    {
-        int temp = node1->val;
-        node1->val = node2->val;
-        node2->val = temp;
-    }
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         for(auto i : lists)
         {
@@ -112,7 +96,7 @@ public://using min heap
                 swapNode(&arr[0],&arr[len--]);
             }
         else
-        arr[0] = arr[0]->next;
+            arr[0] = arr[0]->next;
         heapify(0);
         for(;;)
         {
