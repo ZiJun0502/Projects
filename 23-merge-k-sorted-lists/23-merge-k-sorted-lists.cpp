@@ -16,7 +16,7 @@ public:
         }
     };
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        if(lists.size() == 0) return NULL;
+        if(lists.empty()) return NULL;
         priority_queue<ListNode*, vector<ListNode*>, comp> pq;
         for(auto i : lists)
             if (i != NULL)
