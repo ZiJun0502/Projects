@@ -5,7 +5,7 @@ public:
         int togo;
         for(int i = 0 ; i < len ; i++)
         {
-            if(nums[i] <= 0) continue;
+            if(nums[i] < 0) continue;
             togo = nums[i] - 1;
             while(togo < len && togo >= 0 && nums[togo]!= nums[i])
             {
