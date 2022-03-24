@@ -36,7 +36,7 @@ public:
     }
     vector<int> postorder(Node* root) {
         traverse(root);
-        if(root != NULL) arr.push_back(root->val);
+        if(root != NULL) {arr.push_back(root->val);}
         return arr;
     }
 };
