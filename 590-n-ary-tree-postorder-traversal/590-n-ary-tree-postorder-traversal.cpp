@@ -23,7 +23,6 @@ public:
     vector<int> arr;
     void traverse(Node* node)
     {
-        if(node == NULL) return;
         if(node->children.size() != 0)
         {
             for(auto i : node->children)
@@ -35,8 +34,11 @@ public:
         
     }
     vector<int> postorder(Node* root) {
-        traverse(root);
-        if(root != NULL) arr.push_back(root->val);
+        
+        if(root != NULL){
+            traverse(root);
+            arr.push_back(root->val); 
+        }
         return arr;
     }
 };
