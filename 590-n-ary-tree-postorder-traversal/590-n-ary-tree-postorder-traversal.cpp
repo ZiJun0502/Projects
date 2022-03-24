@@ -20,7 +20,7 @@ public:
 
 class Solution {
 public:
-    vector<int> a;
+    vector<int> arr;
     void traverse(Node* node)
     {
         if(node->children.size() != 0)
@@ -28,7 +28,7 @@ public:
             for(auto i : node->children)
             {
                 traverse(i);
-                a.push_back(i->val);
+                arr.push_back(i->val);
             }
         }
         
@@ -37,8 +37,8 @@ public:
         
         if(root != NULL){
             traverse(root);
-            a.push_back(root->val); 
+            arr.push_back(root->val); 
         }
-        return a;
+        return arr;
     }
 };
