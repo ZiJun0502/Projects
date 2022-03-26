@@ -2,17 +2,22 @@ class Solution {
 public:
     int jump(vector<int>& nums) {
         int n = nums.size();
-        vector<int> dp(n,10000);
-        dp[0] = 0;
-        for(int i = 0 ; i < n-1 ; i ++)
+        int farthest = 0;
+        int ans = 0;
+        int endpt = 0;
+        for(int i = 0 ; i < n-1 ; i++)
         {
-            for(int j = 1 ; j <= nums[i] && j+i < n ; j++)
+            if(i + nums[i] > farthest)
             {
-                dp[j+i] = min(dp[i]+1, dp[j+i]);
+                farthest = i + nums[i];
+                if(farthest >= n-1) return ans+1;
+            }
+            if(i == endpt)
+            {
+                endpt = farthest;
+                ans++;
             }
         }
-        // for(int i = 0 ; i < n ; i++)
-        //     cout << dp[i] <<' ';
-        return dp[n-1];
+        return ans;
     }
 };
