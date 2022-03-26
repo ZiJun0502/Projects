@@ -22,7 +22,7 @@ public:
     }
     ListNode* reverseKGroup(ListNode* head, int k) {
         int len = leng(head);
-        if(k == 1) return  head;
+        if(k == 1) {return  head;}
         // ListNode dummy = ListNode(-1);
         // ListNode* s = &dummy;
         // s->next = head;
