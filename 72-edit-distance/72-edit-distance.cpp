@@ -2,14 +2,12 @@ class Solution {
 public:
     int minDistance(string word2, string word1) 
     {
-        int a = word1.size();
         int b = word2.size();
         int dp[b + 1];// dp[i][j] denote the number of operations to convert word1[0:i] to word2[0:j]
         for(int i = 0 ; i <= b ; i++) dp[i] = i;
-        int i0 = 1; // first element in i-th row
         int temp; // record the dp[i-1][j-1] element
         int tempp;
-        for(int i = 1 ; i <= a ; i++)
+        for(int i = 1 ; i <= word1.size() ; i++)
         {
             //for(auto i : dp) cout << i <<' '; cout <<'\n';  
 
@@ -32,6 +30,6 @@ public:
 
         }
         
-        return dp[b];
+        return dp[word2.size()];
     }
 };
