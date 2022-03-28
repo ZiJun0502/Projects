@@ -5,7 +5,7 @@ public:
     string s;
     void create(int l, int r)
     {
-        if(l + r < 2 * n0)
+        if((l + r) < 2 * n0)
         {
             if(l < n0){
                 s.push_back('(');
