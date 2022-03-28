@@ -8,12 +8,12 @@ public:
         if(l + r < 2 * n0)
         {
             if(l < n0){
-                s += '(';
+                s.push_back('(');
                 create(l + 1, r);
                 s.pop_back();
             }
             if(l > r){
-                s+=')';
+                s.push_back(')');
                 create(l , r + 1);
                 s.pop_back();
             }
