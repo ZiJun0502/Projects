@@ -6,12 +6,9 @@ public:
         int b = word2.size();
         int dp[b + 1];// dp[i][j] denote the number of operations to convert word1[0:i] to word2[0:j]
         for(int i = 0 ; i <= b ; i++) dp[i] = i;
-        int temp; // record the dp[i-1][j-1] element
-        int tempp;
+        int temp, tempp; // record the dp[i-1][j-1] element
         for(int i = 1 ; i <= a ; i++)
         {
-            //for(auto i : dp) cout << i <<' '; cout <<'\n';  
-
             for(int j = 0 ; j <= b ; j++)
             {
                 if(j != 0)
@@ -26,11 +23,9 @@ public:
                     temp = dp[j];
                     dp[j] = i;
                 }
-            }
-            //for(auto i : dp) cout << i <<' '; cout <<'\n';  
+            } 
 
         }
-        
         return dp[b];
     }
 };
