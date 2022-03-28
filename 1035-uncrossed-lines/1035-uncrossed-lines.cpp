@@ -4,7 +4,7 @@ public:
         int a = nums1.size();
         int b = nums2.size();
         int dp[b+1];
-        for(int i = 0 ; i <= b ; i++) dp[i] = 0;
+        for(int i = 0 ; i <= b ; i++) {dp[i] = 0;}
         int tempp , temp ;
         for(int i = 1 ; i <= a ; i++)
         {
@@ -17,10 +17,8 @@ public:
                 }
                 else dp[j] = max(dp[j-1], dp[j]);
                 temp = tempp;
-            }
-                    
+            }  
         }
-
         return dp[b];
     }
 };
