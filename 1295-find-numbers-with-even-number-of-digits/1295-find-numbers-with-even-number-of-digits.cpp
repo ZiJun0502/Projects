@@ -10,7 +10,7 @@ public:
                 i/=10; 
                 count++;
             }
-            if(count % 2 == 0) ans++;
+            if(count % 2 == 0) ans+=1;
         }
         return ans;
     }
