@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<string> ans;
     int n0;
-    string s;
+    string s ="";
     void create(int l, int r)
     {
         if((l + r) < 2 * n0)
