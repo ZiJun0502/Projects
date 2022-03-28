@@ -5,10 +5,9 @@ public:
         int b = nums2.size();
         int dp[b+1];
         for(int i = 0 ; i <= b ; i++) dp[i] = 0;
-        int tempp = 0, temp = 0;
+        int tempp , temp ;
         for(int i = 1 ; i <= a ; i++)
         {
- 
             for(int j = 1 ; j <= b ; j++)
             {
                 tempp = dp[j];
