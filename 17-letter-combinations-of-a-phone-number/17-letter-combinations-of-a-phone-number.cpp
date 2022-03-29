@@ -4,15 +4,14 @@ public:
     string s;
     int len;
     vector<string> ans;
-    string temp;
-    void solver(int count = 0)
+    void solver(string temp, int count = 0)
     {
         if(count < len)
         {
             for(auto i : m[temp[count]])
             {
                 s.push_back(i);
-                solver(count + 1);
+                solver(temp, count + 1);
                 s.pop_back();
             }
         }
@@ -21,7 +20,6 @@ public:
     vector<string> letterCombinations(string digits) {
         len = digits.size();
         if (len == 0) return ans;
-        temp = digits;
         m['2'] = "abc";
         m['3'] = "def";
         m['4'] = "ghi";
@@ -30,7 +28,7 @@ public:
         m['7'] = "pqrs";
         m['8'] = "tuv";
         m['9'] = "wxyz";
-        solver();
+        solver(digits);
         return ans;
     }
 };
