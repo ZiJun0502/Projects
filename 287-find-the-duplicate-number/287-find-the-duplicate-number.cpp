@@ -1,11 +1,10 @@
 class Solution {
 public:
-    unordered_map<int,int> m;
+    set<int> s;
     int findDuplicate(vector<int>& nums) {
-        
         for(int i = 0 ; i < nums.size() ; i++)
         {
-            if(m[nums[i]] == 0) m[nums[i]]++;
+            if(s.count(nums[i]) == 0) s.insert(nums[i]);
             else return nums[i];
         }
         return 0;
