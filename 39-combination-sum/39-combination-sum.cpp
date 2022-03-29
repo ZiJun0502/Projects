@@ -2,9 +2,10 @@ class Solution {
 public:
     vector<vector<int>> ans;
     vector<int> vec;
-    void solver(int target, vector<int>& arr, int count = 0)
+    void solver(int target, vector<int>& arr, int count)
     {
-        if(target == 0) ans.push_back(vec);
+        if(target == 0) 
+            ans.push_back(vec);
         
         for(int i = count; i < arr.size() ; i++)
         {
@@ -17,7 +18,7 @@ public:
         }
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        solver(target, candidates);
+        solver(target, candidates, 0);
         return ans;
         
     }
