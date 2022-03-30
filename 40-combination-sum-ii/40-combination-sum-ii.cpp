@@ -3,7 +3,7 @@ public:
     vector<int> vec;
     vector<vector<int>> ans;
     int len; 
-    void solver(int val, vector<int>& arr ,int count = 0)
+    void solver(int val, vector<int>& arr ,int count )
     {
         if(val == 0){
             ans.push_back(vec);
@@ -22,7 +22,7 @@ public:
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
         len = candidates.size();
         sort(candidates.begin(), candidates.end());
-        solver(target, candidates);
+        solver(target, candidates, 0);
         return ans;
     }
 };
