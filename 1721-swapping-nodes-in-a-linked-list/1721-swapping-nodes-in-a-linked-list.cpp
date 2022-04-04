@@ -11,8 +11,7 @@
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        ListNode* iter;
-        ListNode* right, * left;
+        ListNode* iter, * right, * left;
         iter = right = left = head;
         int count = 1;
         while(iter != NULL)
