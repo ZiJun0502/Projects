@@ -20,7 +20,9 @@ public:
         }
         iter = head;
         for(int i = 0 ; i < k - 1 ; i++)
+        {
             iter = iter->next;
+        }
         ListNode* node1 = iter;
         int temp;
         if(k <= len / 2)
