@@ -11,34 +11,22 @@
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        ListNode* iter = head;
-        int len = 0;
+        ListNode* iter;
+        ListNode* right, * left;
+        iter = right = left = head;
+        int count = 1;
         while(iter != NULL)
         {
+            if(count < k)
+                left = left->next;
+            if(count > k)
+                right = right->next;
             iter = iter->next;
-            len++;
+            count++;
         }
-        iter = head;
-        for(int i = 0 ; i < k - 1 ; i++)
-            iter = iter->next;
-        ListNode* node1 = iter;
-        int temp;
-        if(k <= len / 2)
-        {
-            temp = len - 2 * (k - 1) - 1;
-            for(int i = 0 ; i < temp ; i++)
-                iter = iter->next;
-        }
-        else
-        {
-            temp = len - k;
-            iter = head;
-            for(int i = 0 ; i < temp ; i ++)
-                iter = iter->next;
-        }
-        temp = node1->val;
-        node1->val = iter->val;
-        iter->val = temp;
+        int temp = right->val;
+        right->val = left->val;
+        left->val = temp;
         return head;
     }
 };
