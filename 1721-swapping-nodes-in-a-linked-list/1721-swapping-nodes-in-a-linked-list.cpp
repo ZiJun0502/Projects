@@ -34,9 +34,7 @@ public:
             temp = len - k;
             iter = head;
             for(int i = 0 ; i < temp ; i ++)
-            {
                 iter = iter->next;
-            }
         }
         temp = node1->val;
         node1->val = iter->val;
