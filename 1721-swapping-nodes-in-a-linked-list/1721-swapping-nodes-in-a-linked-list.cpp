@@ -22,18 +22,23 @@ public:
         for(int i = 0 ; i < k - 1 ; i++)
             iter = iter->next;
         ListNode* node1 = iter;
+        int temp;
         if(k <= len / 2)
-            for(int i = 0 ; i < len - 2 * (k - 1) - 1 ; i++)
+        {
+            temp = len - 2 * (k - 1) - 1;
+            for(int i = 0 ; i < temp ; i++)
                 iter = iter->next;
+        }
         else
         {
+            temp = len - k;
             iter = head;
-            for(int i = 0 ; i < len - k ; i ++)
+            for(int i = 0 ; i < temp ; i ++)
             {
                 iter = iter->next;
             }
         }
-        int temp = iter->val;
+        temp = iter->val;
         iter->val =node1->val;
         node1->val = temp;
         return head;
