@@ -14,8 +14,7 @@ public:
         ListNode* iter = head;
         int count = 1;
         ListNode* temp, * prev;
-        prev = NULL;
-        temp = head;
+        prev = NULL,temp = head;
         while(iter != NULL)
         {
             if(count > n)
