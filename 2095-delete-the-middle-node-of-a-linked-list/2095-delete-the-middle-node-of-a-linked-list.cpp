@@ -21,9 +21,7 @@ public:
         if(len == 1) return NULL;
         iter = head;
         for(int i = 0 ; i < len/2-1 ; i++)
-        {
             iter = iter->next;
-        }
         iter->next = iter->next->next;
         return head;
     }
