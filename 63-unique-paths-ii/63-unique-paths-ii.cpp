@@ -3,6 +3,7 @@ public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
         int n = obstacleGrid.size();
         int m = obstacleGrid[0].size();
+        if(obstacleGrid[0][0] == 1) return 0;
         for(int i = 0 ; i < n ; i ++)
         {
             for(int j = 0 ; j < m ; j++)
