@@ -38,9 +38,9 @@ public:
                 iter = iter->next;
             }
         }
-        temp = iter->val;
-        iter->val =node1->val;
-        node1->val = temp;
+        temp = node1->val;
+        node1->val = iter->val;
+        iter->val = temp;
         return head;
     }
 };
