@@ -7,9 +7,7 @@ public:
         while(r < nums.size())
         {
             if(nums[l] == nums[r])
-            {
                 r++;
-            }
             else
             {
                 nums[len ++] = nums[r];
