@@ -2,9 +2,9 @@ class Solution {
 public:
     int minFlipsMonoIncr(string s) {
         int countOnes = 0, countFlips = 0;
-        for (auto ch : s) 
+        for (int i = 0 ; i < s.size() ; i++) 
         {
-            if (ch == '1') 
+            if (s[i] == '1') 
                 ++countOnes;
             else 
                 ++countFlips;
