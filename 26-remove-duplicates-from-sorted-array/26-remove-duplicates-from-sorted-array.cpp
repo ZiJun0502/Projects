@@ -6,9 +6,7 @@ public:
         while(r < nums.size())
         {
             if(nums[l] == nums[r])
-            {
                 r++;
-            }
             else
             {
                 nums[l + 1] = nums[r];
