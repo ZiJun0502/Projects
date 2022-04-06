@@ -11,7 +11,7 @@ public:
             for(int j = 0; j < strs.size() ; j++)
             {
                 if(strs[j][i] != temp) 
-                {return ans;}
+                    return ans;
             }
             ans.push_back(temp);
         }
