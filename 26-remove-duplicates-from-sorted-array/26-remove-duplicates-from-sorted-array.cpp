@@ -1,15 +1,20 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int iter = 0;
-        map<int,int> m;
-        for(int i = 0 ; i < nums.size() ; i++)
-            m[nums[i]] = 1;
-        int len = 0;
-        for(auto i : m)
+        int l = 0;
+        int r = 1;
+        while(r < nums.size())
         {
-            nums[len++] = i.first;
+            if(nums[l] == nums[r])
+            {
+                r++;
+            }
+            else
+            {
+                nums[l + 1] = nums[r];
+                l++;
+            }
         }
-        return len;
+        return l + 1;
     }
 };
