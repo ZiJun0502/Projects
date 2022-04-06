@@ -5,11 +5,12 @@ public:
         char temp;
         for(int i = 0 ; ; i++)
         {
-            if(i >= strs[0].size()) return ans;
+            if(i >= strs[0].size()) 
+                return ans;
             temp = strs[0][i];
-            for(string s : strs)
+            for(int j = 0; j < strs.size() ; j++)
             {
-                if(i >= s.size() || s[i] != temp) return ans;
+                if(strs[j][i] != temp) return ans;
             }
             ans.push_back(temp);
         }
