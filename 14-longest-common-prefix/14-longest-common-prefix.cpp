@@ -10,7 +10,8 @@ public:
             temp = strs[0][i];
             for(int j = 0; j < strs.size() ; j++)
             {
-                if(strs[j][i] != temp) return ans;
+                if(strs[j][i] != temp) 
+                {return ans;}
             }
             ans.push_back(temp);
         }
