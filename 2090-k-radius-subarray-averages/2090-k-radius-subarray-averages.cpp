@@ -18,8 +18,8 @@ public:
             sum -= nums[i - len];
             sum += nums[i];
         }
-        if(len0 - k - 1 > 0)
-            vec[len0 - k - 1] = sum / len;
+        // if(len0 - k - 1 > 0)
+        vec[len0 - k - 1] = sum / len;
         return vec;
     }
 };
