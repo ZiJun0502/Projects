@@ -2,15 +2,16 @@ class Solution {
 public:
     vector<int> getAverages(vector<int>& nums, int k) {
         int len0 = nums.size();
-        vector<int> vec(len0,-1);
         int len = 2 * k + 1;
         if(k == 0) return nums;
+        vector<int> vec(len0,-1);
+        if(len > len0)
+            return vec;
         long sum = 0;
-        for(int i = 0 ; i < len && i < len0 ; i++)
+        for(int i = 0 ; i < len ; i++)
         {
             sum += nums[i];
         }
-        int l = 0, r = len;
         for(int i = len ; i < len0; i++)
         {
             vec[i - k - 1] = sum / len;
