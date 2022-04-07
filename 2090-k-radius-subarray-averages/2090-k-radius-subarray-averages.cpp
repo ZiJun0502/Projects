@@ -9,7 +9,9 @@ public:
             return vec;
         long sum = 0;
         for(int i = 0 ; i < len ; i++)
+        {
             sum += nums[i];
+        }
         for(int i = len ; i < len0; i++)
         {
             vec[i - k - 1] = sum / len;
