@@ -2,15 +2,18 @@ class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
         int count = 0, r = 0, l = 0;
-        int ans = 10000;
+        int ans = 2327;
         bool hi = false;
         for(r ; r < nums.size() ; r++)
         {
             count += nums[r];
-            while(count >= target)
+            if(count >= target)
             {
-                ans = min(ans, r - l + 1);
-                count -= nums[l++];
+                while(count >= target)
+                {
+                    count -= nums[l++];
+                }
+                ans = min(ans, r - l + 2);
                 hi = true;
             }
         }
