@@ -22,14 +22,12 @@ public:
             }
             else if(dx == -1 && x == mini)
             {
-                maxi--;
-                mini++;
+                maxi--,mini++;
                 dx = 0;
                 dy = -1;
             }
             else if(dy == -1 && y == mini)
             {
-
                 dy = 0;
                 dx = 1;
             }
