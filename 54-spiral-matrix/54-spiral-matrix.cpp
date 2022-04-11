@@ -4,13 +4,13 @@ public:
         int m = matrix.size();
         int n = matrix[0].size();
         int size = n * m;
-        vector<int> vec;
+        vector<int> vec(size);
         int x = -1, y = 0, dx = 1, dy = 0;
         int mini = 0, ymaxi = m - 1, xmaxi = n - 1;
-        while(size--)
+        for(int i = 0 ; i < size ; i++)
         {
             y += dy, x += dx;
-            vec.push_back(matrix[y][x]);
+            vec[i] = matrix[y][x];
             if(dx == 1 && x == xmaxi)
             {
                 dx = 0;
