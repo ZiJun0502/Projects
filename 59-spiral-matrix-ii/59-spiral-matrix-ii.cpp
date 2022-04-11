@@ -22,7 +22,8 @@ public:
             }
             else if(dx == -1 && x == mini)
             {
-                maxi--,mini++;
+                maxi--;
+                mini++;
                 dx = 0;
                 dy = -1;
             }
