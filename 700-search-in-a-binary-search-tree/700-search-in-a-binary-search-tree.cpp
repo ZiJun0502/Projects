@@ -23,7 +23,9 @@ public:
             return searchBST(root->right, val);
         }
         else
+        {
             return root;
+        }
         return NULL;
     }
 };
