@@ -12,7 +12,7 @@
 class Solution {
 public:
     TreeNode* trimBST(TreeNode* root, int low, int high) {
-        if(root == NULL) return NULL;
+        if(!root) return NULL;
         if(root->val > high)
         {
             return trimBST(root->left, low, high);
