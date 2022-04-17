@@ -1,56 +1,25 @@
 class Solution {
 public:
-    vector<int>::iterator vec;
-    int x, y;
-    bool dp(int start, int end)
+    vector<vector<int>> dp;    
+    vector<int>::iterator iter;
+    int re(int start, int end)
     {
-        
-        if(end - start < 1)
-        {
-            if(end == start)
-            {
-                x += vec[start];
-            }
-            if(x >= y) {
-                if(end == start)
-                x -= vec[start];
-                return true;
-            }
-            if(end == start)
-            x -= vec[start];
-            return false;
-        }
-        bool a,b;
-        x += vec[start];
-        y += vec[end];
-        a = dp(start + 1, end - 1);
-        y -= vec[end];
-        
-        y += vec[start+ 1];
-        b = dp(start + 2, end);
-        y -= vec[start + 1];
-        x -= vec[start];
-        if(a && b) return true;
-        
-        x += vec[end];
-        y += vec[end - 1];
-        a = dp(start, end - 2);
-        y -= vec[end - 1];
-        
-        y += vec[start];
-        b = dp(start + 1, end - 1);
-        y -= vec[start];
-        x -= vec[end];
-        
-        if(a && b) return true;
-        return false;
+        if(start > end) return 0;
+        if(dp[start][end] != 0) return dp[start][end]; // get rid of overlapping subproblems.
+        // taking minimum here is to simulate that the player 2 is playing the game optimally.
+        int choice1 = iter[start] + min(re(start + 2, end), re(start + 1, end - 1)); 
+        int choice2 = iter[end] + min(re(start + 1, end - 1), re(start, end - 2)); 
+        return dp[start][end] = max(choice1, choice2);
     }
     bool PredictTheWinner(vector<int>& nums) {
-        if(nums.size() == 1)
-        {
-            return true;
-        }
-        vec = nums.begin();
-        return dp(0, nums.size() - 1);
+        iter = nums.begin();
+        int sum =0;
+        int n = nums.size();
+        iter = nums.begin();
+        dp = vector<vector<int>>(n, vector<int>(n));
+        for(int i = 0; i < n; i++) 
+            sum += nums[i];
+        int p1 = re(0, nums.size() - 1); 
+        return p1 >= sum - p1;
     }
 };
