@@ -13,7 +13,7 @@ class Solution {
 public:
     // we want this function to return leftest node of a node;
     TreeNode* increasingBST(TreeNode* root, TreeNode* next = NULL) {
-        if(root == NULL) return next;
+        if(!root) return next;
         root->right = increasingBST(root->right, next);
         TreeNode* temp = increasingBST(root->left, root);
         root->left = NULL;
