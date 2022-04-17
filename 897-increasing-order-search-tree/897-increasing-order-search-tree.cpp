@@ -17,6 +17,6 @@ public:
         root->right = increasingBST(root->right, next);
         TreeNode* temp = increasingBST(root->left, root);
         root->left = NULL;
-        return temp;; 
+        return temp;
     }
 };
