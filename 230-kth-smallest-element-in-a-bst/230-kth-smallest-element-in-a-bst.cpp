@@ -17,7 +17,7 @@ public:
             kthSmallest(root->left,k);
             k--;
             if(k==0) 
-            {ans=root->val;}
+            ans=root->val;
             kthSmallest(root->right,k);
         }
         return ans;
