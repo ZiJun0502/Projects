@@ -23,7 +23,11 @@ public:
                     node1 = prev;
                     node2 = root;
                 }
-                else {node2 = root;}
+                else 
+                {
+                    node2 = root;
+                    return;
+                }
             }
             prev = root;
             traverse(root->right);
