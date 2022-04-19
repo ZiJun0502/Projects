@@ -13,7 +13,7 @@ class Solution {
 public:
     TreeNode* node1, *prev, *node2;
     void traverse(TreeNode* root) {
-        if(root)
+        if(root != NULL)
         {
             traverse(root->left);
             if(prev && root->val < prev->val)
