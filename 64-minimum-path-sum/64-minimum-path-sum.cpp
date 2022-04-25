@@ -6,7 +6,7 @@ public:
         int dp[m];
         dp[0] = grid[0][0];
         int now = grid[0][0];
-        for(int i = 1 ; i < m ; i++) dp[i] = grid[0][i] + dp[i-1];
+        for(int j = 1 ; j < m ; j++) dp[j] = grid[0][j] + dp[j-1];
         for(int i = 1 ; i < n ; i ++)
         {
             now += grid[i][0];
