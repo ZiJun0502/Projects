@@ -4,14 +4,14 @@ public:
         int n = nums.size();
         // dp[i] denote the maximum length of LIS ending at point i
         vector<int> dp;
-        int len = 1;
+        int l = 1;
         dp.push_back(nums[0]);
         for(int i = 1 ; i < n ; i++)
         {
             if(nums[i] > dp.back())
             {
                 dp.push_back(nums[i]);
-                len++;
+                l++;
             }
             else
             {
@@ -19,6 +19,6 @@ public:
                 dp[temp] = nums[i];
             }
         }
-        return len;
+        return l;
     }
 };
