@@ -4,7 +4,7 @@ public:
         int n = nums.size();
         // dp[i] denote the maximum length of LIS ending at point i
         int dp[n];
-        for(int i = 0 ; i < n ; i++) {dp[i] = 1;}
+        for(int i = 0 ; i < n ; i++) dp[i] = 1;
         int ans = 1;
         for(int i = 1 ; i < n ; i++)
         {
