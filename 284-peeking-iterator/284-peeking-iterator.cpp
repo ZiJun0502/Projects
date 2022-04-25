@@ -36,7 +36,7 @@ public:
 	// Override them if needed.
 	int next() {
         int temp = val;
-        if(Iterator::hasNext())
+        if(Iterator::hasNext() == 1)
             val = Iterator::next();
         else val = NULL;
         return temp;
