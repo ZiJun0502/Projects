@@ -4,7 +4,7 @@ public:
         int ans = 1;
         int a0 = 1;
         int a1 = 1;
-        n-=1;
+        n--;
         while(n--)
         {
             ans = a0 + a1;
