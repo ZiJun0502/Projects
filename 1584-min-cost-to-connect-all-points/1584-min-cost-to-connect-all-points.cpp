@@ -24,8 +24,7 @@ public:
         {
             parent[i] = i;
         }
-        int a;
-        int b;
+        int a,b;
         int ans = 0;
         int count = 0;
         while(count != n-1)
