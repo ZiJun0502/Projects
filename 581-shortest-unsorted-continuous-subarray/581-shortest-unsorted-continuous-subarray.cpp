@@ -4,8 +4,8 @@ public:
         vector<int> arr = nums;
         sort(arr.begin(), arr.end());
         int len = 0;
-        int l,r = nums.size() - 1;
-        for(l = 0 ; nums[l] == arr[l] && l < r ; l++)
+        int l = 0,r = nums.size() - 1;
+        for(l ; nums[l] == arr[l] && l < r ; l++)
         {}
         for(r ; nums[r] == arr[r] && r > l ; r--)
         {}
