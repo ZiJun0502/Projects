@@ -9,7 +9,7 @@ public:
             if(m[nums[i]] > 0)
             {
                 ans++;
-                m[nums[i]]--;
+                m[nums[i]]-=1;
             }
             else if(k > nums[i] && nums[i] > 0)
             {
