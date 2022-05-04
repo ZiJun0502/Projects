@@ -11,10 +11,16 @@ public:
                 ans++;
                 m[nums[i]]--;
             }
-            else
+            else if(k > nums[i] && nums[i] > 0)
             {
                 m[k - nums[i]]++;
+                
             }
+            else
+            {
+                nums[i] = -1;
+            }
+            
         }
         return ans;
     }
