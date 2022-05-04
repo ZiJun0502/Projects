@@ -7,7 +7,7 @@ public:
         {
             if(m[nums[i]] > 0)
             {
-                ans+=1;
+                ans++;
                 m[nums[i]]--;
             }
             else
