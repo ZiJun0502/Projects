@@ -18,7 +18,7 @@ public:
             }
             else
             {
-                nums[i] = 0;
+                nums[i] = -1;
             }
             
         }
