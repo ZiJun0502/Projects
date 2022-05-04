@@ -13,7 +13,7 @@ public:
             }
             else if(k > nums[i] && nums[i] > 0)
             {
-                m[k - nums[i]]+=1;
+                m[k - nums[i]]++;
                 
             }
         }
