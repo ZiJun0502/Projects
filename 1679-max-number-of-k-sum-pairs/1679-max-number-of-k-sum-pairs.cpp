@@ -9,7 +9,6 @@ public:
             if(m[nums[i]] > 0)
             {
                 ans++;
-                cout << nums[i] <<' ';
                 m[nums[i]]--;
             }
             else if(k > nums[i] && nums[i] > 0)
