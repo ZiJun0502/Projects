@@ -9,12 +9,11 @@ public:
             if(m[nums[i]] > 0)
             {
                 ans++;
-                m[nums[i]]--;
+                m[nums[i]]-=1;
             }
             else
             {
                 m[k - nums[i]]++;
-                
             }
         }
         return ans;
