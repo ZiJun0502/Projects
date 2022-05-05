@@ -2,7 +2,7 @@ class Solution {
 public:
     bool backspaceCompare(string s, string t) {
         string ss, tt;
-        char c;
+        char c ='\0';
         int a = s.size();
         for(int i = 0 ; i < a ; i++)
         {
@@ -31,7 +31,6 @@ public:
                 tt.push_back(c);
             }
         }
-        cout << tt <<'\n' << ss;
         return tt.compare(ss) == 0;
     }
 };
