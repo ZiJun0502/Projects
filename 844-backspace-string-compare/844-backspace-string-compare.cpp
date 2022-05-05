@@ -2,7 +2,7 @@ class Solution {
 public:
     bool backspaceCompare(string s, string t) {
         string ss, tt;
-        char c ='\0';
+        char c;
         int a = s.size();
         for(int i = 0 ; i < a ; i++)
         {
