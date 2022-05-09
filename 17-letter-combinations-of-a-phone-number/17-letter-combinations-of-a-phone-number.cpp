@@ -19,7 +19,7 @@ public:
     }
     vector<string> letterCombinations(string digits) {
         len = digits.size();
-        if (digits.size() == 0) return ans;
+        if (len == 0) return ans;
         m['2'] = "abc";
         m['3'] = "def";
         m['4'] = "ghi";
