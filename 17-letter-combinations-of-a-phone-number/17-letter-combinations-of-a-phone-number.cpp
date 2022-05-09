@@ -15,11 +15,11 @@ public:
                 s.pop_back();
             }
         }
-        else if(count == len ) ans.push_back(s);
+        else if(count == len) ans.push_back(s);
     }
     vector<string> letterCombinations(string digits) {
         len = digits.size();
-        if (len == 0) return ans;
+        if (digits.size() == 0) return ans;
         m['2'] = "abc";
         m['3'] = "def";
         m['4'] = "ghi";
