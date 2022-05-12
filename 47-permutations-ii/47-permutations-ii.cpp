@@ -4,7 +4,7 @@ public:
     unordered_map<int,int> m;
     vector<int> temp;
     int n;
-    void hi(vector<int> arr)
+    void hi(vector<int>& arr)
     {
         if(temp.size() == n)
         {
