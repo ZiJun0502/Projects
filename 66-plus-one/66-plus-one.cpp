@@ -1,8 +1,8 @@
 class Solution {
 public:
     vector<int> plusOne(vector<int>& d) {
-        int n = d.size()-1;
-        for(int i = n ; i >= 0 ; i--)
+        int n = d.size();
+        for(int i = n -1; i >= 0 ; i--)
         {
             if(d[i] == 9)
             {
