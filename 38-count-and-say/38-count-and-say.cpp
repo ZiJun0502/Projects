@@ -13,7 +13,7 @@ public:
             while(i != l - 1 && s[i] == s[i + 1])
             {
                 count++;
-                i++;
+                i+=1;
             }
             ss += to_string(count) + s[i];
         }
