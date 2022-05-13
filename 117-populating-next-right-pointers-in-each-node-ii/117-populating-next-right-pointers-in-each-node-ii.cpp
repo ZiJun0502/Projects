@@ -21,7 +21,7 @@ public:
     Node* connect(Node* root) {
         if(!root) return NULL;
         queue<Node*> q;
-        Node* iter = new Node(-1), *temp, *dummy = new Node(-1);
+        Node* iter, *temp, *dummy = new Node(-1);
         q.push(root);
         int size;
         while(q.empty()!=1)
