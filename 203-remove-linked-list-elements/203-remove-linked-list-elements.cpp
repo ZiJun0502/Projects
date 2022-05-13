@@ -26,7 +26,6 @@ public:
             if(iter->val == val)
             {
                 prev->next = next;
-                delete iter;
             }
             else
                 prev = iter;
