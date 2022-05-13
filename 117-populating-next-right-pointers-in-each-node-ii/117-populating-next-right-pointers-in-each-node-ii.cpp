@@ -18,25 +18,27 @@ public:
 
 class Solution {
 public:
-    Node* connect(Node* root) {
-        if(!root) return NULL;
+    Node* connect(Node* root) 
+    {
+        if (!root)
+            return root;
         queue<Node*> q;
-        Node* iter, *temp, *dummy = new Node(-1);
         q.push(root);
-        int size;
-        while(q.empty()!=1)
+        q.push(NULL);
+        while (q.size() > 1)
         {
-            size = q.size();
-            iter = dummy;
-            while(size--)
+            Node* curr = q.front();
+            q.pop();
+            if (!curr)
             {
-                temp = q.front();
-                q.pop();
-                iter->next = temp;
-                iter = iter->next;
-                if(temp->left) q.push(temp->left);
-                if(temp->right)q.push(temp->right);
+                q.push(NULL);
+                continue;
             }
+            curr->next = q.front();
+            if (curr->left)
+                q.push(curr->left);
+            if (curr->right)
+                q.push(curr->right);
         }
         return root;
     }
