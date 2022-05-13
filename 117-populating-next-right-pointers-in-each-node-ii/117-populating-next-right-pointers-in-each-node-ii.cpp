@@ -22,12 +22,13 @@ public:
     {
         if (!root)
             return root;
+        Node* curr;
         queue<Node*> q;
         q.push(root);
         q.push(NULL);
         while (q.size() > 1)
         {
-            Node* curr = q.front();
+            curr = q.front();
             q.pop();
             if (!curr)
             {
