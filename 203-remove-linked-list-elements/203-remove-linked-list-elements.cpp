@@ -17,7 +17,6 @@ public:
         while(iter && iter->val == val)
         {
             head = head->next;
-            delete iter;
             iter =  head;
         }
         while(iter)
