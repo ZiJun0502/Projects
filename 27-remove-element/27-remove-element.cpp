@@ -6,7 +6,7 @@ public:
         {
             while(nums[i] == val)
             {
-                nums[i] = -2;
+                nums[i] = -1;
                 swap(nums[i], nums[count--]);
             }
         }
