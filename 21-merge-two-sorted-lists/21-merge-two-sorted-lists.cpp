@@ -17,7 +17,7 @@ public:
         ListNode* cur2 = list2;
         for(;cur1 && cur2;)
         {
-            if(cur1->val > cur2->val)
+            if(cur1->val >= cur2->val)
             {
                 iter = iter->next = cur2;
                 cur2 = cur2->next;
