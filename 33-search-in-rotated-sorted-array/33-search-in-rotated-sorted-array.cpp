@@ -10,7 +10,7 @@ class Solution {
     }
 public:
     int search(vector<int>& nums, int target) {
-        int n = (int)nums.size();
+        int n = nums.size();
         if(n == 1){
             return (target == nums[0] ? 0 : -1);
         }
