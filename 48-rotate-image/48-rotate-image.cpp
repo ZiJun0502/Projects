@@ -10,11 +10,11 @@ public:
         int n = m.size();
         //diagonal length / 2
         int size = n / 2;
-        int len = n;
+        int len = n-1;
         // record starting value for swapping
         for(int i = 0 ; i < size ; i++)
         {
-            for(int j = 0 ; j < len-1 ; j++)
+            for(int j = 0 ; j < len ; j++)
             {
                 pos1.i = i;
                 pos1.j = i + j;
