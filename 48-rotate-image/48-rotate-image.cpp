@@ -7,7 +7,7 @@ public:
     };
     void rotate(vector<vector<int>>& m) {
         pt pos1, pos2, pos3, pos4;
-        int n = m.size(); n--;
+        int n = m.size()-1;
         //diagonal length / 2
         int size = (n+1) / 2;
         int len = n;
