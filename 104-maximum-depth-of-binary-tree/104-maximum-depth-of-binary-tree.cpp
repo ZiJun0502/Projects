@@ -17,7 +17,7 @@ public:
         {
             maxDepth(root->left, d+1);
             maxDepth(root->right, d+1);
-            if(d > ans) ans = d;
+            if(d > ans) {ans = d;}
             return ans;
         }
         return 0;
