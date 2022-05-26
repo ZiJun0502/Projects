@@ -16,7 +16,7 @@ public:
         if(root)
         {
             TreeNode* right = root->right;
-            if(prev != NULL)
+            if(prev)
             {
                 prev->right = root;
                 prev->left = NULL;
