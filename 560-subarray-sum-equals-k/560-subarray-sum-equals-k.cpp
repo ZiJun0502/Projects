@@ -7,7 +7,8 @@ public:
         for(int r = 0 ; r < nums.size() ; r++)
         {
             pre += nums[r];
-            ans+= m[pre - k];
+            if(m.find(pre - k) != m.end())
+                ans+= m[pre - k];
             m[pre]++;
         }
         return ans;
