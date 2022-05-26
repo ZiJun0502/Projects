@@ -10,11 +10,29 @@
  * };
  */
 class Solution {
+private:
+    bool hasPathSumHelper(TreeNode* currNode, int targetSum, int currSum)
+    {
+        bool hasSum = false;
+        // case: currNode is not in tree
+        if (currNode)
+        {
+            currSum += currNode->val;
+            // case: leaf node encountered
+            if (!currNode->left && !currNode->right && currSum == targetSum)
+            {
+                hasSum = true;
+            }
+            // case: internal node encountered
+            else
+            {
+                hasSum = (hasPathSumHelper(currNode->left, targetSum, currSum) || hasPathSumHelper(currNode->right, targetSum, currSum)); 
+            }
+        }
+        return hasSum;
+    }
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
-        if(!root) return false;
-        int val = targetSum - root->val;
-        if(val == 0 && !root->left && !root->right) return true;
-        return hasPathSum(root->left, val) || hasPathSum(root->right, val);
+        return hasPathSumHelper(root, targetSum, 0);
     }
 };
