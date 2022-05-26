@@ -2,57 +2,53 @@ class Solution {
 public:
     int ans, n ,m;
     vector<vector<int>>* g;
-    bool valid(int i, int j)
-    {
-        return i >= 0 && i < n && j >= 0 && j < m;
-    }
     void dfs(int i, int j)
-{
-    int count = 0;
-    ans += 4;
-    (*g)[i][j] = 2;
-    if(valid(i + 1, j))
     {
-        if((*g)[i + 1][j] == 1)
+        int count = 0;
+        ans += 4;
+        (*g)[i][j] = 2;
+        if(i+1 < n)
         {
-            dfs(i + 1, j);
-            ans--;
+            if((*g)[i + 1][j] == 1)
+            {
+                dfs(i + 1, j);
+                ans--;
+            }
+            else if((*g)[i + 1][j] == 2)
+                ans--;
         }
-        else if((*g)[i + 1][j] == 2)
-            ans--;
-    }
-    if(valid(i - 1, j))
-    {
-        if((*g)[i - 1][j] == 1)
+        if(i-1 >= 0)
         {
-            dfs(i - 1, j);
-            ans--;
+            if((*g)[i - 1][j] == 1)
+            {
+                dfs(i - 1, j);
+                ans--;
+            }
+            else if((*g)[i - 1][j] == 2)
+                ans--;
         }
-        else if((*g)[i - 1][j] == 2)
-            ans--;
-    }
-    //cout << valid(i, j + 1) << '\n' << (*g)[i][j+1] <<'\n';
-    if(valid(i, j + 1))
-    {
-        if((*g)[i][j + 1] == 1)
+        //cout << valid(i, j + 1) << '\n' << (*g)[i][j+1] <<'\n';
+        if(j+1 < m)
         {
-            dfs(i, j + 1);
-            ans--;
+            if((*g)[i][j + 1] == 1)
+            {
+                dfs(i, j + 1);
+                ans--;
+            }
+            else if((*g)[i][j + 1] == 2)
+                ans--;
         }
-        else if((*g)[i][j + 1] == 2)
-            ans--;
-    }
-    if(valid(i, j - 1))
-    {
-        if((*g)[i][j - 1] == 1)
+        if(j-1 >= 0)
         {
-            dfs(i, j - 1);
-            ans--;
+            if((*g)[i][j - 1] == 1)
+            {
+                dfs(i, j - 1);
+                ans--;
+            }
+            else if((*g)[i][j - 1] == 2)
+                ans--;
         }
-        else if((*g)[i][j - 1] == 2)
-            ans--;
     }
-}
     int islandPerimeter(vector<vector<int>>& grid) {
         n = grid.size();
         m = grid[0].size();
