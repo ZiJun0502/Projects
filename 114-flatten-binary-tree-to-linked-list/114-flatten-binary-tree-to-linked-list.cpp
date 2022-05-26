@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    TreeNode* prev = NULL;
+    TreeNode* prev;
     void flatten(TreeNode* root) {
         if(root)
         {
