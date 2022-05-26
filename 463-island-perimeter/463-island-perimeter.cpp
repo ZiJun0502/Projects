@@ -3,7 +3,6 @@ public:
     int ans, n ,m;
     void dfs(int i, int j, vector<vector<int>>& g)
     {
-        int count = 0;
         ans += 4;
         g[i][j] = 2;
         if(i+1 < n)
