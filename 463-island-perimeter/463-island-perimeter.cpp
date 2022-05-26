@@ -25,7 +25,6 @@ public:
             else if(g[i - 1][j] == 2)
                 ans--;
         }
-        //cout << valid(i, j + 1) << '\n' << (*g)[i][j+1] <<'\n';
         if(j+1 < m)
         {
             if(g[i][j + 1] == 1)
@@ -51,9 +50,9 @@ public:
         n = grid.size();
         m = grid[0].size();
         
-        for(int i = 0 ; i < n ; i++)
+        for(int j = 0 ; j < m ; j++)
         {
-            for(int j = 0 ; j < m ; j++)
+            for(int i = 0 ; i < n ; i++)
             {
                 if(grid[i][j] == 1)
                 {
