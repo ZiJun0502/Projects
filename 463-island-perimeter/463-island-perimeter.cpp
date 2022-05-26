@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int ans, n ,m;
+    int ans = 0, n ,m;
     void dfs(int i, int j, vector<vector<int>>& g)
     {
         ans += 4;
