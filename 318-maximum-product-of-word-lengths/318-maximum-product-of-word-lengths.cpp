@@ -3,8 +3,10 @@ public:
     int maxProduct(vector<string>& words) {
         int n = words.size();
         vector<int> nums;
-        for(string s:words)
+        string s;
+        for(int i = 0 ; i < n ; i++)
         {
+            s = words[i];
             bitset<26> m;
             for(char c : s)
             {
