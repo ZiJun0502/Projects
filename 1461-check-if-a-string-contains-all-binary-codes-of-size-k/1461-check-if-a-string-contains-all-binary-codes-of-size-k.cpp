@@ -13,9 +13,9 @@ public:
             }
             codes.insert(val);
         }
-        int size;
+        int size = pow(2, k);
         //for(auto i : codes) cout << i <<'\n';
-        size = pow(2, k);
+    
         //cout <<size<<'\n';
         if(codes.size() == size) return true;
         return false;
