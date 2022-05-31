@@ -15,7 +15,7 @@ public:
     int sumOfLeftLeaves(TreeNode* root, int flag = 0) {
         if(!root) return 0;
         sumOfLeftLeaves(root->left, 1);
-        if(!root->right and !root->left and flag) ans+=root->val;
+        if(!root->right && !root->left && flag) ans+=root->val;
         sumOfLeftLeaves(root->right, 0);
         
         return ans;
