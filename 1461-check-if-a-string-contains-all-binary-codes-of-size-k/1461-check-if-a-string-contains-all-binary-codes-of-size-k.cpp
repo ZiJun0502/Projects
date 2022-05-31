@@ -4,15 +4,14 @@ public:
         set<int> codes;
         string sub;
         int len = s.size() - k + 1;
-        for(int i = 0 ; i < len; i++)
+        for(int i = 0 ; i < len; i ++)
         {
-            sub = s.substr(i, k);
-            int j = 0;
-            for(int l = k-1 ; l >= 0 ; l--)
+            int val = 0;
+            for(int j = i ; j < i + k  ; j++)
             {
-                j = (j << 1) + (sub[l] - '0');
+                val = (val << 1) + s[j] - '0';
             }
-            codes.insert(j);
+            codes.insert(val);
         }
         int size;
         //for(auto i : codes) cout << i <<'\n';
