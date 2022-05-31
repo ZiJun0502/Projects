@@ -15,9 +15,9 @@ public:
         if(last - k >= 0 && k != 0)
             re(len + 1, last - k, num * 10 + (last - k));
     }
-    vector<int> numsSameConsecDiff(int n0, int k0) {
-        n = n0;
-        k = k0;
+    vector<int> numsSameConsecDiff(int nn, int kk) {
+        n = nn;
+        k = kk;
         for(int i = 1 ; i < 10 ; i++) re(1, i, i);
         return ans;
     }
