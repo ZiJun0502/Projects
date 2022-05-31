@@ -2,13 +2,12 @@ class Solution {
 public:
     bool hasAllCodes(string s, int k) {
         set<int> codes;
-        int n = s.size();
-        int j;
         string sub;
-        for(int i = 0 ; i < n - k + 1; i++)
+        int len = s.size() - k + 1;
+        for(int i = 0 ; i < len; i++)
         {
             sub = s.substr(i, k);
-            j = 0;
+            int j = 0;
             for(int l = k-1 ; l >= 0 ; l--)
             {
                 j = (j << 1) + (sub[l] - '0');
