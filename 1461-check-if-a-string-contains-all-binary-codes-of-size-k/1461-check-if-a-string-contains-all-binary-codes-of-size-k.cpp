@@ -2,11 +2,11 @@ class Solution {
 public:
     bool hasAllCodes(string s, int k) {
         unordered_set<int> codes;
-        string sub;
         int len = s.size() - k + 1;
+        int val;
         for(int i = 0 ; i < len; i ++)
         {
-            int val = 0;
+            val = 0;
             for(int j = i ; j < i + k  ; j++)
             {
                 val = (val << 1) + s[j] - '0';
