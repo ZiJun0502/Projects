@@ -14,7 +14,7 @@ public:
                 else dp[i] = dp[i - j] + 1;
             }
         }
-        int count = 0;
+        //int count = 0;
         //for(auto i : dp) cout << count++ << ':'<< i << '\n';
         return dp[amount];
     }
