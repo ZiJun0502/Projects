@@ -2,12 +2,12 @@ class Solution {
 public:
     vector<vector<string>> ans;
     vector<string> temp;
-    bool col[10], row[10], left[20], right[20];
+    bool col[9], row[9], left[18], right[18];
     int n;
     bool valid(int i, int j)
     {
-        if(col[j] || row[i] || right[i + j] || left[j - i + n]) return false;
-        return true;
+        return !(col[j] || row[i] || right[i + j] || left[j - i + n]);
+        
     }
     void solve(int i)
     {
