@@ -9,7 +9,7 @@ public:
         return !(col[j] || row[i] || right[i + j] || left[j - i + n]);
         
     }
-    void solve(int i)
+    void solve(int i = 0)
     {
         for(int j = 0 ; j < n ; j++)
         {
@@ -35,7 +35,7 @@ public:
     vector<vector<string>> solveNQueens(int nn) {
         n = nn;
         temp = vector<string>(n, string(n, '.'));
-        solve(0);
+        solve();
         return ans;
     }
 };
