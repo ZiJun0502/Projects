@@ -22,9 +22,9 @@ public:
                     temp[i][j] = '.';
                     return;
                 }
-                col[j] = 1;
-                row[i] = 1;
-                left[j - i + n] = 1;
+                col[j] = 1,
+                row[i] = 1,
+                left[j - i + n] = 1,
                 right[i + j] = 1;
                 solve(i + 1);
                 temp[i][j] = '.';
