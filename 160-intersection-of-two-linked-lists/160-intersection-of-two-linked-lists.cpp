@@ -23,7 +23,7 @@ public:
             len2++;
         }
         int move1 = len1 - len2;
-        int move2 = -1*move1;
+        int move2 = len2 - len1;
         iter1 = headA, iter2 = headB;
         while(move1 > 0)
         {
