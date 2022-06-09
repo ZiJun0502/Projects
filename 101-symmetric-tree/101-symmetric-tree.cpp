@@ -10,7 +10,7 @@ public:
                 r_nodes.pop();
                 continue;
             }
-            if(l_nodes.front() == NULL or r_nodes.front() == NULL)    return 0;
+            if(!l_nodes.front() or !r_nodes.front())    return 0;
             int n=l_nodes.size();
             int i=0;
             for(int i=0;i<n;i++){
