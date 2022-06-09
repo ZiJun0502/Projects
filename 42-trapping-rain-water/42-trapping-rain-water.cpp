@@ -1,11 +1,10 @@
 class Solution {
 public:
     int trap(vector<int>& h) {
-        int n = h.size();
+        int r = h.size() - 1, l = 0;
         // leftMax[i] highest wall on the left side of i
         int lm = 0, rm = 0;
         int ans = 0;
-        int l = 0, r = n - 1;
         while(r > l)
         {
             if(h[r] > h[l])
