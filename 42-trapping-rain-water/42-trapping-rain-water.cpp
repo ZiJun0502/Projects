@@ -3,8 +3,8 @@ public:
     int trap(vector<int>& height) {
         int n = height.size();
         // leftMax[i] highest wall on the left side of i
-        int leftMax[n];
-        int rightMax[n];
+        int leftMax[n+1];
+        int rightMax[n+1];
         int maxi = 0;
         for(int i = 0 ; i < n ; i++)
         {
