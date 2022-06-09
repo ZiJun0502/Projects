@@ -2,13 +2,15 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         int l = 0, r = nums.size() - 1;
+        int temp;
         while(r > l)
         {
-            if(nums[r] + nums[l] > target)
+            temp = nums[r] + nums[l];
+            if(temp > target)
             {
                 r--;
             }
-            else if(nums[r] + nums[l] < target)
+            else if(temp < target)
             {
                 l++;
             }
