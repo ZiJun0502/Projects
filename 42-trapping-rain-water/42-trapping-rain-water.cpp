@@ -1,29 +1,28 @@
 class Solution {
 public:
-    int trap(vector<int>& height) {
-        int n = height.size();
+    int trap(vector<int>& h) {
+        int n = h.size();
         // leftMax[i] highest wall on the left side of i
-        int leftMax[n+1];
-        int rightMax[n+1];
-        int maxi = 0;
-        for(int i = 0 ; i < n ; i++)
-        {
-            leftMax[i] = maxi;
-            maxi = max(maxi, height[i]);
-        }
-        maxi = 0;
-        for(int i = n-1 ; i > -1 ; i--)
-        {
-            rightMax[i] = maxi;
-            maxi = max(maxi, height[i]);
-        }
+        int lm = 0, rm = 0;
         int ans = 0;
-        for(int i = 1 ; i < n ; i++)
+        int l = 0, r = n - 1;
+        while(r > l)
         {
-            int h = min(leftMax[i], rightMax[i]);
-            if(h > height[i])
+            if(h[r] > h[l])
             {
-                ans += h - height[i];
+                if(h[l] < lm) 
+                    ans += lm - h[l];
+                else
+                    lm = h[l];
+                l++;
+            }
+            else
+            {
+                if(h[r] < rm)
+                    ans += rm - h[r];
+                else
+                    rm = h[r];
+                r--;
             }
         }
         return ans;
