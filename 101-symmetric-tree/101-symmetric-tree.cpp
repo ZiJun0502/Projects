@@ -1,32 +1,46 @@
 class Solution {
 public:
-    bool isSymmetric(TreeNode* root) {
-        queue<TreeNode*> l_nodes,r_nodes;
-        l_nodes.push(root->left);
-        r_nodes.push(root->right);
-        while(l_nodes.size() !=0){
-            if(l_nodes.front() == NULL and r_nodes.front() == NULL){
-                l_nodes.pop();
-                r_nodes.pop();
-                continue;
-            }
-            if(!l_nodes.front() or !r_nodes.front())    return 0;
-            int n=l_nodes.size();
-            int i=0;
-            for(int i=0;i<n;i++){
-                TreeNode* left = l_nodes.front();
-                l_nodes.pop();
-                TreeNode* right = r_nodes.front();
-                r_nodes.pop();
-                if(left == NULL and right == NULL)  continue;
-                if(left == NULL or right == NULL)   return 0;    
-                if(left->val!=right->val) return 0;
-                l_nodes.push(left->left);
-                l_nodes.push(left->right);
-                r_nodes.push(right->right);
-                r_nodes.push(right->left);
-            }          
+    bool ans = true;
+    bool helper(TreeNode* leftnode,TreeNode* rightnode)
+    {
+        if(leftnode==NULL && rightnode==NULL)
+            return true;
+        if(leftnode->left!=NULL && rightnode->right!=NULL)
+		{
+			if(leftnode->left->val != rightnode->right->val)
+			{
+                       return false;
+			}
+        
+			else
+			{
+				ans = ans && helper(leftnode->left,rightnode->right);
+				if(!ans)
+					return ans;
+			}
         }
-        return 1; 
+        else if((leftnode->left != NULL && rightnode->right==NULL) ||(leftnode->left==NULL && rightnode->right!=NULL))
+            return false;
+			
+        if(leftnode->right && rightnode->left)
+		{
+			if(leftnode->right->val != rightnode->left->val)
+				return false;
+			 else
+			{
+				ans = ans && helper(leftnode->right,rightnode->left);
+				if(!ans)
+					return ans;
+			}
+        }
+        else if((leftnode->right != NULL && rightnode->left==NULL) ||(leftnode->right==NULL && rightnode->left!=NULL))
+            return false;
+            
+        return ans;
+    }
+    bool isSymmetric(TreeNode* root) {
+        if(!root->left && !root->right) 
+            return true;
+        return helper(root,root);
     }
 };
