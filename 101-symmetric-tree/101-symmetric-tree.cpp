@@ -1,46 +1,13 @@
 class Solution {
 public:
-    bool ans = true;
-    bool helper(TreeNode* leftnode,TreeNode* rightnode)
+    bool re(TreeNode* l,TreeNode* r)
     {
-        if(leftnode==NULL && rightnode==NULL)
-            return true;
-        if(leftnode->left!=NULL && rightnode->right!=NULL)
-		{
-			if(leftnode->left->val != rightnode->right->val)
-			{
-                       return false;
-			}
-        
-			else
-			{
-				ans = ans && helper(leftnode->left,rightnode->right);
-				if(!ans)
-					return ans;
-			}
-        }
-        else if((leftnode->left != NULL && rightnode->right==NULL) ||(leftnode->left==NULL && rightnode->right!=NULL))
-            return false;
-			
-        if(leftnode->right && rightnode->left)
-		{
-			if(leftnode->right->val != rightnode->left->val)
-				return false;
-			 else
-			{
-				ans = ans && helper(leftnode->right,rightnode->left);
-				if(!ans)
-					return ans;
-			}
-        }
-        else if((leftnode->right != NULL && rightnode->left==NULL) ||(leftnode->right==NULL && rightnode->left!=NULL))
-            return false;
-            
-        return ans;
+        if(l && !r || r && !l) return false;
+        if(!l && !r) return true;
+        if(l->val != r->val) return false;
+        return re(l->left, r->right) && re(l->right, r->left);
     }
     bool isSymmetric(TreeNode* root) {
-        if(!root->left && !root->right) 
-            return true;
-        return helper(root,root);
+        return re(root->left,root->right);
     }
 };
