@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        int l = 0, r = nums.size() - 1;
+        int l = 0, r = nums.size(); r--;
         int temp;
         while(r > l)
         {
