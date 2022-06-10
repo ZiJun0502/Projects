@@ -4,8 +4,7 @@ public:
         vector<int> pos(256, -1);
         int n = s.size();
         char c;
-        int left = 0;
-        int ans = 0;
+        int left = 0, ans = 0;
         for(int i  = 0 ; i < n ; i++)
         {
             c = s[i];
