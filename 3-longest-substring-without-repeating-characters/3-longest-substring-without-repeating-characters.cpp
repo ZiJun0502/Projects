@@ -2,7 +2,7 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         int pos[256];
-        memset(pos, -1, 1024);
+        memset(pos, -1, 256* 4);
         //for(int i : pos) cout << i <<' ';
         int n = s.size();
         char c;
