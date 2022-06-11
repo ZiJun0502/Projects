@@ -21,6 +21,6 @@ public:
         //cout << ans <<'\n';
         if(ans == -1)
             return -1;
-        else return n - ans - 1;
+        else return n - (ans + 1);
     }
 };
