@@ -2,7 +2,7 @@ class Solution {
 public:
     int minOperations(vector<int>& nums, int x) {
         int n = nums.size();
-        int iter = 0, temp = 0, sums = 0, now = 0;
+        int iter = 0, sums = 0, now = 0;
         for(int i : nums) sums += i;
         if(sums < x)
             return -1;
@@ -21,6 +21,6 @@ public:
         //cout << ans <<'\n';
         if(ans == -1)
             return -1;
-        else return n - ans - 1;
+        else return n - (ans + 1);
     }
 };
