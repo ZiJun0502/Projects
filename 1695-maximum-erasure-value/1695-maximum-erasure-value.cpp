@@ -17,7 +17,8 @@ public:
                 {
                     while(l != temp)
                     {
-                        paSum -= nums[l++];
+                        paSum -= nums[l];
+                        l++;
                     }
                 }
             }
