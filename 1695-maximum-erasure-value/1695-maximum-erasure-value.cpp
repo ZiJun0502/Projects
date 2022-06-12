@@ -9,6 +9,7 @@ public:
             paSum += nums[i];
             if(m.find(nums[i]) != m.end())
             {
+                maxi = max(maxi, paSum - nums[i]);
                 int temp = max(l, m[nums[i]] + 1);
                 if(temp != l)
                 {
@@ -19,9 +20,9 @@ public:
                     }
                 }
             }
-            maxi = max(maxi, paSum);
             m[nums[i]] = i;
         }
+        maxi = max(maxi, paSum);
         return maxi;
     }
 };
