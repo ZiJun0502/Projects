@@ -46,9 +46,10 @@ public:
         //     cout << '\n';
         // }
         int mini = INT_MAX;
-        for(int i = 0 ; i < n ; i++)
+        n--;
+        for(int i = 0 ; i <= n ; i++)
         {
-            mini = min(dp[n-1][i], mini);
+            mini = min(dp[n][i], mini);
         }
         return mini;
     }
