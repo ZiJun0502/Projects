@@ -18,7 +18,7 @@ public:
         //         cout << j <<' ';
         //     cout << '\n';
         // }
-        int mini = INT_MAX;
+        int mini = 10000;
         n--;
         for(int i = 0 ; i <= n ; i++)
         {
