@@ -5,7 +5,7 @@ public:
         vector<vector<int>> dp;
         for(int i = 0 ; i < n ; i++)
         {
-            dp.push_back(vector<int>(i+1, 1000000));
+            dp.push_back(vector<int>(i+1, 10000));
         }
         // for(int i = 0 ; i < n ; i++)
         // {
