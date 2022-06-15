@@ -1,31 +1,27 @@
 class Solution {
 public:
-    static bool compare(string s1, string s2)
-    {
-        return s1.size()<s2.size();
-    }
-    
-    int longestStrChain(vector<string>& words) 
-    {
-        unordered_map<string, int> dp; //it stores predecessor word and chain size
-        sort(words.begin(), words.end(), compare);
+    int longestStrChain(vector<string>& words) {
         
-        int len = 1; 
-        for(auto word:words) 
+    std::sort(words.begin(), words.end(), [](const std::string& first, const std::string& second)
+	{
+        return first.size() < second.size();
+	});
+        
+        map<string,int> m;
+        int res = 0;
+        
+        for(string word:words)
         {
-            dp[word]=1; 
-            for(int i=0; i<word.length(); i++) 
+            int longest =0;
+            for(int i = 0;i<word.length();i++)
             {
-                //removing ith alphabet from the string and check remaining string is available in the dp 
-                string pred = word.substr(0,i) + word.substr(i+1); 
-                
-                if(dp.find(pred) != dp.end()) 
-                {
-                    dp[word] = dp[pred]+1; 
-                    len = max(len, dp[word]);
-                }
+                string sub = word.substr(0,i) + word.substr(i+1,word.length()+1);
+                longest = max(longest,m[sub]+1);   
             }
+            
+            m[word] = longest;
+            res = max(res,longest);
         }
-        return len;    
+        return res;
     }
 };
