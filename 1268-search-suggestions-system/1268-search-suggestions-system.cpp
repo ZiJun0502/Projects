@@ -1,29 +1,40 @@
 class Solution {
 public:
-    vector<vector<string>> suggestedProducts(vector<string>& ss, string s) {
-        sort(ss.begin(), ss.end());
-        int n = ss.size();
-        int iter = 0;
-        int m = s.size();
-        vector<vector<string>> ans;
-        for(int i = 0 ; i < m ; i++)
+    vector<vector<string>> suggestedProducts(vector<string>& products, string searchWord) 
+    {
+        // first sort the given products string
+        sort(products.begin(), products.end());
+        
+        // it will store the string and their corresponding occured strings
+        unordered_map<string, vector<string>> mp;
+        
+        // iterate over the given products
+        for (string &product : products) 
         {
-            vector<string> temp;
-            string sub = s.substr(0, i + 1);
-            for(int j = 0 ; j < n ; j++)
+            // it will the all substrings for current product[i]
+            string sub = "";
+            
+            for (int i = 0; i < product.size(); i++) 
             {
-                string t = ss[j].substr(0, i+1);
-                //cout << t <<' ' <<sub<<'\n';
-                if(t == sub)
-                {
-                    temp.push_back(ss[j]);
-                }
-                if(temp.size() == 3)
-                {
-                    break;
-                }
+                // each timer take the char of current product and push it to the sub vector
+                // like : 'm'->'mo'->'mou'->'mous'->'mouse'
+                sub.push_back(product[i]);
+                
+                // as given in the question for each typed word we need to give 3 suggestions not more than that
+                // storing the current product for current stored word sub
+                if (mp[sub].size() < 3) 
+                    mp[sub].push_back(product);
             }
-            ans.push_back(temp);
+        }
+        
+        vector<vector<string>> ans;
+        string subStr = "";
+        for (int i = 0; i < searchWord.size(); i++) 
+        {
+            // it will add the curr char of search word and according to that 
+            // we will store the top 3 vector<string> values in ans  from mp
+            subStr += searchWord[i];
+            ans.push_back(mp[subStr]);
         }
         return ans;
     }
