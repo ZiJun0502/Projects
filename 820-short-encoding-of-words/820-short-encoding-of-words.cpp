@@ -1,10 +1,22 @@
 class Solution {
 public:
     int minimumLengthEncoding(vector<string>& words) {
-        string ans;
-        sort(words.begin(),words.end(),[](string &a,string &b){return a.size() > b.size();});
-        for(string &s:words)
-            if(ans.find(s + "#") == string::npos) ans += s + "#";
-        return ans.size();
+        for(auto &word: words){
+            reverse(word.begin(), word.end());
+        }
+        sort(words.begin(), words.end());
+        int i;
+        int n = words.size();
+        string str = words[0];
+        int count = 0, size;
+        for(i=1;i<n;i++){
+            size = str.size();
+            if(words[i].compare(0, size, str)){
+                count += 1 + size;
+            }
+            str = words[i];
+        }
+        count += str.size()+1;
+        return count;
     }
 };
