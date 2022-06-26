@@ -2,8 +2,7 @@ class Solution {
 public:
     int maxScore(vector<int>& v, int k) {
         int n = v.size();
-        int sum = 0;
-        int mini = 0;
+        int sum = 0, mini = 0;
         int right = n - k;
         int left = 0;
         for(int i = 0 ; i < right ; i++){
