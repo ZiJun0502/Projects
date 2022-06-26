@@ -10,7 +10,7 @@ public:
         {
             sum += v[n-i];
             sum -= v[k-i];
-            ans = max(sum, ans);
+            if(sum > ans) ans = sum;
         }
         return ans;
     }
