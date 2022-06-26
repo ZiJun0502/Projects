@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxScore(vector<int>& v, int k) {
-        int ans;
+        int ans=0;
         int n = v.size()-1;
         int sum = 0;
         k --;
