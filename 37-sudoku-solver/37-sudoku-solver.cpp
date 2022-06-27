@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int n = 0;
+    int n;
     vector<vector<char>>* arr;
     bool valid(int i, int j, int k)
     {
