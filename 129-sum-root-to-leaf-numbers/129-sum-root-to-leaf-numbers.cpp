@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    int ans = 0;
+    int ans;
     void help(TreeNode* root, int num)
     {
         if(!root->left && !root->right)
