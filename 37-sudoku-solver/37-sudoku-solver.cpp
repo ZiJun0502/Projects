@@ -17,6 +17,7 @@ public:
     }
     bool help(int i, int j)
     {
+        if(j == 9) return help(i+1, 0);
         if(i == 9) return true;
         if((*arr)[i][j] =='.')
         {
@@ -26,12 +27,12 @@ public:
                 if(valid(i, j, k))
                 {
                     (*arr)[i][j] = k + '0';
-                    if(help(j==8 ? i+1 : i, j==8 ? 0 : j + 1) == true) return true;
+                    if(help(i, j+1) == true) return true;
                     (*arr)[i][j] = '.';
                 }
             }
         }
-        else return help(j==8 ? i+1 : i, j==8 ? 0 : j + 1);
+        else return help(i, j+1);
         return false;
     }
     void solveSudoku(vector<vector<char>>& board) {
