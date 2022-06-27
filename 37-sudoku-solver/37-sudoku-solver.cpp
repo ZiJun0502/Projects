@@ -19,7 +19,7 @@ public:
     {
         if(j == 9)
         {
-            i++;
+            i+=1;
             j = 0;
         }
         if(i == 9) return true;
