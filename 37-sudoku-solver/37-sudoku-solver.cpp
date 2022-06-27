@@ -17,7 +17,11 @@ public:
     }
     bool help(int i, int j)
     {
-        if(j == 9) return help(i+1, 0);
+        if(j == 9)
+        {
+            i++;
+            j = 0;
+        }
         if(i == 9) return true;
         if((*arr)[i][j] =='.')
         {
