@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int n;
+    int n = 0;
     vector<vector<char>>* arr;
     bool valid(int i, int j, int k)
     {
@@ -11,12 +11,8 @@ public:
         int istart = i - i%3;
         int jstart = j - j%3;
         for(int ii = istart ; ii < istart+3 ; ii++)
-        {
             for(int jj = jstart ; jj < jstart + 3 ; jj++)
-            {
                 if((*arr)[ii][jj]-'0' == k) return false;
-            }
-        }
         return true;
     }
     bool help(int i, int j)
