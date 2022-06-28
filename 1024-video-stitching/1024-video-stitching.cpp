@@ -2,7 +2,8 @@ class Solution {
 public:
     int videoStitching(vector<vector<int>>& clips, int time) {
         sort(clips.begin(),clips.end());
-        int now = 0, next = 0;
+        int now = 0;
+        int next = 0;
         int n = clips.size();
         int ans = 0;
         for(int i = 0 ; i < n ; i++)
