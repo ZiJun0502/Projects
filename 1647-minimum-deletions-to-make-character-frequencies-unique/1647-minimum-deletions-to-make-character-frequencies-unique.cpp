@@ -15,7 +15,8 @@ public:
                 freq[i] = freq[i+1] - 1;
                 if(freq[i+1] == 0)
                 {
-                    ans--,freq[i]++;
+                    ans--;
+                    freq[i]++;
                 }
             }
             
