@@ -1,15 +1,15 @@
 class Solution {
 public:
     int minMoves2(vector<int>& nums) {
-        int res = 0;
+        int ans = 0;
         sort(nums.begin(),nums.end()); // sorting the array
         int l = 0,r = nums.size() - 1;
         while(l<r)
         {
-            res += nums[r] - nums[l]; // adding difference
+            ans += nums[r] - nums[l]; // adding difference
             l++;
             r--;
         }
-        return res;
-    }
+        return ans;
+    }// 1 4 5 7 8 // 7 3
 };
