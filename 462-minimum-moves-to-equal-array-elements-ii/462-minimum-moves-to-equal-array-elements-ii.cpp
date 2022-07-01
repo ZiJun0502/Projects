@@ -6,7 +6,9 @@ public:
         int l = 0,r = nums.size() - 1;
         while(l<r)
         {
-            ans += nums[r--] - nums[l++]; // adding difference
+            ans += nums[r] - nums[l]; // adding difference
+            l++;
+            r--;
         }
         return ans;
     }// 1 4 5 7 8 // 7 3
