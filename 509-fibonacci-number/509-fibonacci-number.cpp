@@ -1,7 +1,9 @@
 class Solution {
 public:
     int fib(int n) {
-        if(n <= 1) return n;
+        if(n <= 1){
+            return  n;
+        }
         int a0 = 0;
         int a1 = 1;
         int ans = 0;
