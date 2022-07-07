@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    vector<TreeNode*> ans;
+    vector<TreeNode*> ans = {};
     vector<TreeNode*> re(int l, int r)
     {
         // choose starting point
