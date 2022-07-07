@@ -7,14 +7,13 @@ public:
         image[i][j] = c;
         if(visited[i][j]) return;
         visited[i][j] = 1;
-        //cout << i <<' ' << j << ' '<<'\n';
-        if(i < n && image[i+1][j] == now)
+        if(i < n && image[i+1][j] == now && !visited[i+1][j])
             DFS(i + 1, j, image);
-        if(i > 0 && image[i-1][j] == now)
+        if(i > 0 && image[i-1][j] == now && !visited[i-1][j])
             DFS(i-1, j, image);
-        if(j > 0 && image[i][j-1] == now)
+        if(j > 0 && image[i][j-1] == now && !visited[i][j-1])
             DFS(i, j-1, image);
-        if(j < m && image[i][j+1] == now)
+        if(j < m && image[i][j+1] == now && !visited[i][j+1])
             DFS(i, j+1, image);
     }
     vector<vector<int>> floodFill(vector<vector<int>>& image, int i, int j, int color) {
@@ -22,7 +21,6 @@ public:
         m = image[0].size()-1;
         c = color;
         now = image[i][j];
-        //cout << "hi";
         DFS(i, j, image);
         return image;
     }
