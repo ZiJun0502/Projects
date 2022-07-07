@@ -5,7 +5,7 @@ public:
     void DFS(int i, int j, vector<vector<int>>& grid)
     {
         visited[i][j] = 1;
-        area+=1;
+        area++;
         if(i < n && grid[i+1][j] == 1 && !visited[i+1][j]) DFS(i+1, j , grid); 
         if(i > 0 && grid[i-1][j] == 1 && !visited[i-1][j]) DFS(i-1, j , grid); 
         if(j < m && grid[i][j+1] == 1 && !visited[i][j+1]) DFS(i, j+1 , grid); 
