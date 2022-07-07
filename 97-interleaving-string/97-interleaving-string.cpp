@@ -1,8 +1,7 @@
 class Solution {
 public:
     bool isInterleave(string s1, string s2, string s3) {
-        int n = s1.size();
-        int m = s2.size();
+        int n = s1.size(), m = s2.size();
         bool dp[n+1][m+1];
         dp[0][0] = n + m == s3.size();
         for(int i = 1 ; i <= n ; i++) dp[i][0] = dp[i-1][0] && (s1[i-1] == s3[i-1]);
