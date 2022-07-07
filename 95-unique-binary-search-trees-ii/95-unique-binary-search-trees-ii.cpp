@@ -12,7 +12,6 @@
 class Solution {
 public:
     vector<TreeNode*> ans;
-    int n;
     vector<TreeNode*> re(int l, int r)
     {
         // choose starting point
