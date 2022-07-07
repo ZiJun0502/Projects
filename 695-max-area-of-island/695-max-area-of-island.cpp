@@ -19,7 +19,6 @@ public:
             for(int j = 0 ; j <= m ; j++)
             {
                 if(grid[i][j] == 1 && !visited[i][j]){
-                    visited[i][j] = 1;
                     area = 0;
                     DFS(i , j, grid);
                     maxArea = max(maxArea, area);
