@@ -3,20 +3,31 @@ class Solution {
 public:
     int maxResult(vector<int>& nums, int k)
     {
-        int n=nums.size();
-        int score[n];
-        priority_queue<pii> pq;
+        int n = nums.size();
+        vector<int> dp(nums.size(),0);
+        dp[n-1]=nums[n-1];
         
-        for(int i=n-1 ; i>=0 ; i--)
-        {
-            while(pq.size() && pq.top().second>i+k)
-                pq.pop();
+        deque<int> dq;
+        dq.push_back(n-1);
+      
+        for(int i=n-2;i>=0;i--){
+          
+            int a = nums[i];
             
-            score[i]=nums[i];
-            score[i]+=(pq.size() ? pq.top().first : 0);
-            pq.push({score[i], i});
+            while(dq.size() && dq.front()>i+k){    //  take out indices until we find front less than i+k
+              dq.pop_front();
+            }
+            
+            int next  = dp[dq.front()];
+            dp[i] = a+next;
+           
+            while(dq.size() && dp[dq.back()]< dp[i]){       // if dp[i] is greater than back then pop back because we want to keep max element at front
+              dq.pop_back();
+            } 
+            
+            dq.push_back(i); 
+            
         }
         
-        return score[0];
-    }
+        return dp[0];}
 };
