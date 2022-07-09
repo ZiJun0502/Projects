@@ -21,7 +21,7 @@ public:
             int next  = dp[dq.front()];
             dp[i] = a+next;
            
-            while(dq.size() && dp[dq.back()]< dp[i]){       // if dp[i] is greater than back then pop back because we want to keep max element at front
+            while(!dq.empty() && dp[dq.back()]< dp[i]){       // if dp[i] is greater than back then pop back because we want to keep max element at front
               dq.pop_back();
             } 
             
