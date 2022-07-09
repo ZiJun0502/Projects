@@ -12,16 +12,15 @@ public:
       
         for(int i=n-2;i>=0;i--){
           
-            int a = nums[i];
             
-            while(dq.size() && dq.front()>i+k){    //  take out indices until we find front less than i+k
+            while(!dq.empty() && dq.front() > i + k){
               dq.pop_front();
             }
             
-            int next  = dp[dq.front()];
-            dp[i] = a+next;
+            int score = dp[dq.front()];
+            dp[i] = nums[i] + score;
            
-            while(!dq.empty() && dp[dq.back()]< dp[i]){       // if dp[i] is greater than back then pop back because we want to keep max element at front
+            while(!dq.empty() && dp[dq.back()]<= dp[i]){
               dq.pop_back();
             } 
             
