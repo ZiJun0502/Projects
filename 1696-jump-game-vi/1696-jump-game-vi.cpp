@@ -20,7 +20,7 @@ public:
             int score = dp[dq.front()];
             dp[i] = nums[i] + score;
            
-            while(!dq.empty() && dp[dq.back()]<= dp[i]){
+            while(!dq.empty() && dp[dq.back()] < dp[i]){
               dq.pop_back();
             } 
             
