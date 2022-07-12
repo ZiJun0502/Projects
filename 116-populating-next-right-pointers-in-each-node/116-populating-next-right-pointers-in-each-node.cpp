@@ -24,7 +24,7 @@ public:
         root->next = NULL;
         q.push_back(root);
         q.push_back(NULL);
-        Node* temp;
+        Node* temp = NULL;
         int count;
         while(q.size() > 1){
             temp = q.front();
