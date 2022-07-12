@@ -19,26 +19,26 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
-        list<Node*> q;
+        queue<Node*> q;
         if(!root) return NULL;
         root->next = NULL;
-        q.push_back(root);
-        q.push_back(NULL);
+        q.push(root);
+        q.push(NULL);
         Node* temp = NULL;
         int count;
         while(q.size() > 1){
             temp = q.front();
-            q.pop_front();
+            q.pop();
             if(temp == NULL){
-                q.push_back(NULL);
+                q.push(NULL);
                 continue;
             }
             temp->next = q.front();
             if(temp->left){
-                q.push_back(temp->left);
+                q.push(temp->left);
             }
             if(temp->right){
-                q.push_back(temp->right);
+                q.push(temp->right);
             }
         }
         return root;
