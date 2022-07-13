@@ -10,7 +10,7 @@ public:
                 int m = word.size();
                 if(i + m <= n){
                     string temp = s.substr(i, m);
-                    if(temp.compare(word) == 0){
+                    if(!temp.compare(word)){
                         dp[i] = 1;
                         dp[i + m] = 1;
                     }
