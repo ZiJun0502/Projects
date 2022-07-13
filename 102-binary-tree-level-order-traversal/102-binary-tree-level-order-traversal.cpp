@@ -16,7 +16,7 @@ public:
         if(!root) return ans;
         queue<TreeNode*> q;
         vector<int> temp;
-        temp.clear();
+        //temp.clear();
         q.push(root);
         q.push(NULL);
         while(q.size() > 1)
