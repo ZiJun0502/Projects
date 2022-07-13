@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    int maxiPath = -1e9;
+    int maxiPath = -1e6;
     int re(TreeNode* root){
         if(!root) return 0;
         int l = max(0, re(root->left));
