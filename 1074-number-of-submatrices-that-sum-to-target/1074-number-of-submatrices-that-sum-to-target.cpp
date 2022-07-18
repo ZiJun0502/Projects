@@ -2,7 +2,7 @@ class Solution {
 public:
     int numSubmatrixSumTarget(vector<vector<int>>& matrix, int target) {
         int n=matrix.size(),m=matrix[0].size(),count=0;
-        vector<vector<int>>temp(n+1,vector<int>(m));
+        int temp[n+1][m+1];
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 temp[i+1][j]=temp[i][j]+matrix[i][j];
