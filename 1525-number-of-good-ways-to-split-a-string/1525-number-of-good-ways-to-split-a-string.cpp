@@ -12,18 +12,18 @@ public:
         left[0] = right[n-1] = 1;
         l[s[0]-'a'] = 1, r[s[n-1] - 'a'] = 1;
         for(int i = 1 ; i < n ; i++){
+            left[i] = left[i-1];
             if(l[s[i] - 'a'] == 0){
-                left[i] = left[i-1]+1;
+                left[i]++;
                 l[s[i] -'a'] = 1;
             }
-            else left[i] = left[i-1];
         }
         for(int i = n-2 ; i > -1 ; i--){
+            right[i] = right[i+1];
             if(r[s[i] - 'a'] == 0){
-                right[i] = right[i+1]+1;
+                right[i]++;
                 r[s[i] -'a'] = 1;
             }
-            else right[i] = right[i+1];
         }
         int ans = 0;
         for(int i = 0 ; i < n-1 ;i++){
