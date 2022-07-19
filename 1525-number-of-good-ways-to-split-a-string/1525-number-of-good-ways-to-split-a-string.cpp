@@ -9,24 +9,25 @@ public:
         int right[n];
         memset(left, 0, 4*n);
         memset(right, 0, 4*n);
-        for(int i = 0 ; i < n ; i++){
+        left[0] = right[n-1] = 1;
+        l[s[0]-'a'] = 1, r[s[n-1] - 'a'] = 1;
+        for(int i = 1 ; i < n ; i++){
             if(l[s[i] - 'a'] == 0){
-                if(i > 0)
-                    left[i] = left[i-1]+1;
-                else left[i]++;
+                left[i] = left[i-1]+1;
                 l[s[i] -'a'] = 1;
             }
             else left[i] = left[i-1];
         }
-        for(int i = n-1 ; i > -1 ; i--){
+        for(int i = n-2 ; i > -1 ; i--){
             if(r[s[i] - 'a'] == 0){
-                if(i < n-1)
-                    right[i] = right[i+1]+1;
-                else right[i]++;
+                right[i] = right[i+1]+1;
                 r[s[i] -'a'] = 1;
             }
             else right[i] = right[i+1];
         }
+        for(int i : left) cout << i << ' ';
+        cout << '\n';
+        for(int i : right) cout << i << ' ';
         int ans = 0;
         for(int i = 0 ; i < n-1 ;i++){
             if(left[i] == right[i+1]){
