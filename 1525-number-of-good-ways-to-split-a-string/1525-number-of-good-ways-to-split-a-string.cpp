@@ -5,10 +5,10 @@ public:
         bitset<26> r;
         
         int n = s.size();
-        short int left[n];
-        short int right[n];
-        memset(left, 0, 2*n);
-        memset(right, 0, 2*n);
+        int left[n];
+        int right[n];
+        memset(left, 0, 4*n);
+        memset(right, 0, 4*n);
         left[0] = right[n-1] = 1;
         l[s[0]-'a'] = 1, r[s[n-1] - 'a'] = 1;
         for(int i = 1 ; i < n ; i++){
