@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int re(vector<int>& nums, int l, int r, int flag){
+    int re(vector<int>& nums, int l, int r, int flag = 0){
         if(r - l > 1){
             int left = re(nums, l, (l+r)/2, 0);
             int right = re(nums, (l+r)/2+1, r, 1);
