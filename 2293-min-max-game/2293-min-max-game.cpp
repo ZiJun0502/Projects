@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int re(vector<int>& nums, int l = 0, int r = 0, int flag = 0){
+    int re(vector<int>& nums, int l, int r, int flag){
         if(r - l > 1){
             int left = re(nums, l, (l+r)/2, 0);
             int right = re(nums, (l+r)/2+1, r, 1);
@@ -14,6 +14,6 @@ public:
         return 0;
     }
     int minMaxGame(vector<int>& nums) {
-        return re(nums, 0, nums.size()-1);
+        return re(nums, 0, nums.size()-1, 0);
     }
 };
