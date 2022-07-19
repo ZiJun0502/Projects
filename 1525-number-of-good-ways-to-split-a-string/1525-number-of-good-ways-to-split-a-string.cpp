@@ -25,9 +25,6 @@ public:
             }
             else right[i] = right[i+1];
         }
-        for(int i : left) cout << i << ' ';
-        cout << '\n';
-        for(int i : right) cout << i << ' ';
         int ans = 0;
         for(int i = 0 ; i < n-1 ;i++){
             if(left[i] == right[i+1]){
