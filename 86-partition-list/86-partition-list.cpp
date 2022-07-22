@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode* dummy = new ListNode(-1);
+        ListNode* dummy = new ListNode(0);
         ListNode* iter = head, *prev = NULL, *next = NULL;
         ListNode* diter = dummy;
         while(iter){
