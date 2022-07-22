@@ -18,7 +18,6 @@ public:
         last += root->val;
         root->val = last;
             con(root->left);    
-        return;
     }
     TreeNode* convertBST(TreeNode* root) {
         if(!root) return root;
