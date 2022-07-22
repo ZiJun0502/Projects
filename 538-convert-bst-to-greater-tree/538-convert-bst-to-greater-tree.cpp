@@ -14,13 +14,13 @@ public:
     int last = 0;
     void con(TreeNode* root){
         if(!root) return;
-            con(root->right);
+        con(root->right);
         last += root->val;
         root->val = last;
-            con(root->left);    
+        con(root->left);    
     }
     TreeNode* convertBST(TreeNode* root) {
-        if(!root) return root;
+        if(root == NULL) return root;
         con(root);
         return root;
     }
