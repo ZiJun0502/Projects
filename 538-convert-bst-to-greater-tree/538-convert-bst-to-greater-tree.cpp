@@ -11,21 +11,21 @@
  */
 class Solution {
 public:
-    int last = 0;
-    void con(TreeNode* root){
+    void con(TreeNode* root, int &last){
         if(root->right){
-            con(root->right);
+            con(root->right, last);
         }
         last += root->val;
         root->val = last;
         if(root->left){
-            con(root->left);    
+            con(root->left, last);    
         }
         return;
     }
     TreeNode* convertBST(TreeNode* root) {
         if(!root) return root;
-        con(root);
+        int last = 0;
+        con(root, last);
         return root;
     }
 };
