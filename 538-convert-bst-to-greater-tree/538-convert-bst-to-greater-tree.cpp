@@ -20,7 +20,7 @@ public:
         con(root->left);    
     }
     TreeNode* convertBST(TreeNode* root) {
-        if(root == NULL) return root;
+        if(!root) return root;
         con(root);
         return root;
     }
