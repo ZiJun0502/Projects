@@ -11,7 +11,10 @@ public:
         for(int i = 0 ; i < n ;i++){
             bool good = true;
             for(int j = 0 ; j <= i/2 ; j++){
-                if(s[i-j] != s[j]) good = false;
+                if(s[i-j] != s[j]){
+                    good = false;
+                    break;
+                }
             }
             if(good){
                 vec.push_back(s.substr(0, i+1));
