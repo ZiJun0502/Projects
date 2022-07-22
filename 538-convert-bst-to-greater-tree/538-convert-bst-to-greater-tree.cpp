@@ -13,14 +13,11 @@ class Solution {
 public:
     int last = 0;
     void con(TreeNode* root){
-        if(root->right){
+        if(!root) return;
             con(root->right);
-        }
         last += root->val;
         root->val = last;
-        if(root->left){
             con(root->left);    
-        }
         return;
     }
     TreeNode* convertBST(TreeNode* root) {
