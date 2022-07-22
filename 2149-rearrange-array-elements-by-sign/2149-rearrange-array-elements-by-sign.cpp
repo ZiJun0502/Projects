@@ -15,7 +15,8 @@ public:
         }
         a=0,b=0;
         int count = 0;
-        for(int i = 0 ; i < n/2 ;i++){
+        n/=2;
+        for(int i = 0 ; i < n ;i++){
             nums[count++] = pos[a++];
             nums[count++] = neg[b++];
         }
