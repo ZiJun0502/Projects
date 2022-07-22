@@ -3,8 +3,8 @@ public:
     vector<int> rearrangeArray(vector<int>& nums) {
         int n = nums.size();
         int a = 0, b = 0;
-        vector<int> pos(n/2);
-        vector<int> neg(n/2);
+        int* pos = new int[n/2];
+        int* neg = new int[n/2];
         for(int i = 0 ; i < n ; i++){
             if(nums[i] >= 0){
                 pos[a++] = nums[i];
