@@ -9,10 +9,11 @@ public:
             return ;
         }
         for(int i = 0 ; i < n ;i++){
-            bool good = 1;
+            bool good = true;
             for(int j = 0 ; j <= i/2 ; j++){
                 if(s[i-j] != s[j]){
-                    good = 0;
+                    good = false;
+                    break;
                 }
             }
             if(good){
