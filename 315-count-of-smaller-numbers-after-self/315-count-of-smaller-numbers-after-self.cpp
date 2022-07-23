@@ -1,48 +1,79 @@
 class Solution {
 public:
-    void mergeSort(vector<pair<int,int>>&v, vector<int>&count, int l, int m , int r){
-        vector<pair<int,int>>t(r-l+1);
-        int i = l, j = m+1, k = 0;
-        while(i <= m && j <= r){
-            if(v[i].first > v[j].first){
-                count[v[i].second] += r-j+1;
-                t[k] = v[i];
-                i++;
-            }
-            else{
-                t[k] = v[j];
+    void merge(vector<pair<int, int>> &nums, int start, int mid, int end, vector<int> &res)
+    {
+        vector<pair<int, int>> sorted(end - start + 1);
+
+        int i = start;
+        int j = mid + 1;
+        int k = 0;
+
+        while (i <= mid and j <= end)
+        {
+            if (nums[i].first <= nums[j].first)
+            {
+                sorted[k] = nums[j];
                 j++;
+                k++;
             }
+            else
+            {
+                res[nums[i].second] += end - j + 1;
+                sorted[k] = nums[i];
+                i++;
+                k++;
+            }
+        }
+
+        while (i <= mid)
+        {
+            sorted[k] = nums[i];
+            i++;
             k++;
         }
-        while(i <= m){
-            t[k++] = v[i++];
+
+        while (j <= end)
+        {
+            sorted[k] = nums[j];
+            j++;
+            k++;
         }
-        while(j <= r){
-            t[k++] = v[j++];
-        }
-        for(int it = l; it <= r; it++){
-            v[it] = t[it-l];
-        }
-    }
-    
-    void solve(vector<pair<int,int>>&v, vector<int>&count, int l, int r){
-        if(l < r){
-            int m = l+(r-l)/2;
-            solve(v, count, l, m);
-            solve(v, count, m+1, r);
-            mergeSort(v, count,l , m , r);
+
+        i = start;
+        k = 0;
+        while (i <= end)
+        {
+            nums[i] = sorted[k];
+            i++;
+            k++;
         }
     }
-    
-    vector<int> countSmaller(vector<int>& nums) {
-        int n = nums.size();
-        vector<int>count(n,0);
-        vector<pair<int,int>>num;
-        for(int i = 0; i < n; i++){
-            num.push_back({nums[i],i});
+
+    void Merge_Sort(vector<pair<int, int>> &nums, int start, int end, vector<int> &res)
+    {
+
+        if (start < end)
+        {
+            int mid = start + (end - start) / 2;
+
+            Merge_Sort(nums, start, mid, res);
+            Merge_Sort(nums, mid + 1, end, res);
+            merge(nums, start, mid, end, res);
         }
-        solve(num,count,0,n-1);
-        return count;
+        else
+            return;
+    }
+
+    vector<int> countSmaller(vector<int> &nums)
+    {
+        vector<pair<int, int>> nums2(nums.size());
+        for (int i = 0; i < nums.size(); i++)
+        {
+            nums2[i] = {nums[i], i};
+        }
+        vector<int> res(nums.size(), 0);
+        Merge_Sort(nums2, 0, nums.size() - 1, res);
+
+        return res;
     }
 };
