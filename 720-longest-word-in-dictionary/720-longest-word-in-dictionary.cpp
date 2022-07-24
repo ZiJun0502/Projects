@@ -2,7 +2,7 @@ class Solution {
 public:
     string longestWord(vector<string>& words) {
         sort(words.begin(), words.end());
-        set<string> m;
+        unordered_set<string> m;
         string s;
         m.insert("");
         int ans = 0;
