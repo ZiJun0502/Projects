@@ -15,7 +15,7 @@ public:
         }
         if(up < 0) return false;
         auto i = lower_bound(matrix[up].begin(), matrix[up].end(), target);
-        if(i != matrix[up].end() && (*i) == target) return true;
+        if(i != matrix[up].end() && *i == target) return true;
         return false;
     }
 };
