@@ -7,8 +7,8 @@ public:
         while(i >= 0 && j < m){
             
             if(matrix[i][j] > target) i--;
-            else if(matrix[i][j] == target) return true;
-            else j++;
+            else if(matrix[i][j] < target)j++;
+            else return true;
         }
         return false;
     }
