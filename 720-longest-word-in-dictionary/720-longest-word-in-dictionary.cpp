@@ -6,9 +6,8 @@ public:
         string s;
         m.insert("");
         int ans = 0;
-        int n;
         for(string word : words){
-            n = word.size();
+            int n = word.size();
             if(m.find(word.substr(0, n-1)) != m.end()){
                 if(n > ans){
                     ans = n;
