@@ -2,9 +2,12 @@ class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int n = matrix.size();
-        for(int i = 0 ; i < n ;i++){
-            auto j = lower_bound(matrix[i].begin(), matrix[i].end(), target);
-            if(j != matrix[i].end() && (*j) == target) return true;
+        int m = matrix[0].size();
+        int i = n-1, j = 0;
+        while(i >= 0 && j < m){
+            if(matrix[i][j] == target) return true;
+            else if(matrix[i][j] > target) i--;
+            else j++;
         }
         return false;
     }
