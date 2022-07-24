@@ -2,10 +2,10 @@ class Solution {
 public:
     string longestWord(vector<string>& words) {
         unordered_set<string> m;
-        int ans = 0;
         string s;
         sort(words.begin(), words.end());
         m.insert("");
+        int ans = 0;
         for(string word : words){
             int n = word.size();
             if(m.find(word.substr(0, n-1)) != m.end()){
