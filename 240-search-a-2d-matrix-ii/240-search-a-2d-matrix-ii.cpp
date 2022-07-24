@@ -5,9 +5,8 @@ public:
         int m = matrix[0].size();
         int i = n-1, j = 0;
         while(i >= 0 && j < m){
-            
-            if(matrix[i][j] > target) i-=1;
-            else if(matrix[i][j] < target)j+=1;
+            if(matrix[i][j] > target) i--;
+            else if(matrix[i][j] < target)j++;
             else return true;
         }
         return false;
