@@ -13,7 +13,7 @@ public:
         if(root == q || root == p){
             return root;
         }
-        TreeNode* right=NULL, *left=NULL;
+        TreeNode *right = NULL, *left = NULL;
         if(root->left){
             left = lowestCommonAncestor(root->left, p, q);
         }
@@ -21,7 +21,7 @@ public:
             right = lowestCommonAncestor(root->right, p, q);
         }
         if(left && right) return root;
-        if(left) return left;
+        else if(left) return left;
         return right;
     }
 };
