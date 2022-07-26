@@ -10,7 +10,7 @@ public:
                 break;
             }
         }
-        if(l == 0 && !(nums[l+1] > nums[l])) reverse(nums.begin(), nums.end());
+        if(l == 0 && (nums[l+1] < nums[l])) reverse(nums.begin(), nums.end());
         else{
             for(r ; r > l ; r--){
                 if(nums[r] > nums[l]){
