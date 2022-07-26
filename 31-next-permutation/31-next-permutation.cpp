@@ -12,7 +12,7 @@ public:
                         break;
                     }
                 }
-                swap(nums[r], nums[l]);
+                swap(nums[l], nums[r]);
                 reverse(nums.begin()+l+1, nums.end());
                 return;
             }
