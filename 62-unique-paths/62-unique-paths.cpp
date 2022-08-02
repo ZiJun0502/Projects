@@ -1,16 +1,13 @@
 class Solution {
 public:
     int uniquePaths(int m, int n) {
-        if(m > n) return uniquePaths(n, m);
-        int dp[m];
-        for(int i = 0 ; i < m ; i++) dp[i] = 1;
-        for(int i = 1 ; i < n ; i++)
-        {
-            for(int j = 1 ; j < m ; j ++)
-            {
-                dp[j] = dp[j] + dp[j - 1];
-            }
+       int mod = 2e9;
+        long long ans = 1;
+        int temp = min(m, n) -1;
+        int j = m+n-2;
+        for(int i = 1 ; i <= temp ; i++){
+            ans = ans * j-- / i % mod;
         }
-        return dp[m - 1];
+        return ans;
     }
 };
