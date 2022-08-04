@@ -1,31 +1,31 @@
 class Solution {
 public:
     int maxPoints(vector<vector<int>>& points) {
-        int ans = 0;
-        int n = points.size();
-        if(n == 1) return 1;
-        for(int i = 0 ; i < n-1 ; i++){
-            map<vector<float>,int> m;
-            auto p = points[i];
-            double x0 = p[0], y0 = p[1];
-            for(int j = i+1 ; j < n ; j++){
-                auto p1 = points[j];
-                double x1 = p1[0], y1 = p1[1];
-                double a,b;
-                if(x1 == x0){
-                    m[{1e9, (float)x0}]++;
-                    continue;
+        int n = points.size(), ans = 0;
+        for (int i = 0; i < n; i++) {
+            unordered_map<string, int> counter;
+            int dup = 1;
+            for (int j = i + 1; j < n; j++) {
+                if (points[j][0] == points[i][0] && points[j][1] == points[i][1]) {
+                    dup++;
+                } else {
+                    int dx = points[j][0] - points[i][0], dy = points[j][1] - points[i][1], g = gcd(dx, dy);
+                    counter[to_string(dx / g) + '_' + to_string(dy / g)]++;
                 }
-                a = (y1 - y0) / (x1 - x0);
-                b = y1 - a * x1;
-                //cout << a <<' '<< b <<' '<<'\n';
-                m[{(float)a,(float)b}]++;
             }
-            for(auto i : m){
-                //cout << i.first[0] <<' '<<i.first[1] <<' '<<i.second<<'\n';
-                ans = max(ans, i.second+1);
-            }//cout << '\n';
+            ans = max(ans, dup);
+            for (auto p : counter) {
+                ans = max(ans, p.second + dup);
+            }
         }
         return ans;
+    }
+private:
+    int gcd(int a, int b) {
+        while (b) {
+            a = a % b;
+            swap(a, b);
+        }
+        return a;
     }
 };
