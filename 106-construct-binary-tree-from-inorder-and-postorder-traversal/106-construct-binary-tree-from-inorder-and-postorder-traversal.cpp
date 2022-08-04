@@ -31,9 +31,8 @@ public:
         return root;
     }
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
-        int n = postorder.size();
+        int n = postorder.size()-1;
         in = inorder, po = postorder;
-        
-        return re(0, n-1, 0, n-1);
+        return re(0, n, 0, n);
     }
 };
