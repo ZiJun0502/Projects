@@ -16,12 +16,9 @@ public:
         int i;
         TreeNode* root = new TreeNode(po[prer]);
         if(inl >= inr) return root;
-         //cout << inl <<' ' <<inr<<'\n';
-         //cout << prel <<' ' <<prer<<'\n';
         for(i = inl; i <= inr ; i++){
             if(in[i] == root->val) break;
         }
-        //cout << i <<'\n';
         if(i-inl > 0){
             root->left = re(inl, i-1, prel, prel+i-1-inl);
         }else root->left = NULL;
