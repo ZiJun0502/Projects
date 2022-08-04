@@ -12,31 +12,28 @@
 class Solution {
 public:
     vector<int> in, po;
-    void re(int inl, int inr, int prel, int prer,
-            TreeNode* now){
+    TreeNode* re(int inl, int inr, int prel, int prer){
         int i;
-        if(inl >= inr) return;
+        TreeNode* root = new TreeNode(po[prer]);
+        if(inl >= inr) return root;
          //cout << inl <<' ' <<inr<<'\n';
          //cout << prel <<' ' <<prer<<'\n';
         for(i = inl; i <= inr ; i++){
-            if(in[i] == now->val) break;
+            if(in[i] == root->val) break;
         }
         //cout << i <<'\n';
         if(i-inl > 0){
-            now->left = new TreeNode(po[prel + i - inl - 1]);
-            re(inl, i-1, prel, prel+i-1-inl, now->left);
-        }else now->left = NULL;
+            root->left = re(inl, i-1, prel, prel+i-1-inl);
+        }else root->left = NULL;
         if(inr-i > 0){
-            now->right = new TreeNode(po[prer-1]);
-            re(i+1, inr, prel+i-inl, prer-1, now->right);
-        }else now->right = NULL;
-        
+            root->right = re(i+1, inr, prel+i-inl, prer-1);
+        }else root->right = NULL;
+        return root;
     }
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
         int n = postorder.size();
         in = inorder, po = postorder;
-        TreeNode* root = new TreeNode(postorder[postorder.size()-1]);
-        re(0, n-1, 0, n-1, root);
-        return root;
+        
+        return re(0, n-1, 0, n-1);
     }
 };
