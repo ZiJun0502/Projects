@@ -18,8 +18,9 @@ public:
         q.push(NULL);
         vector<vector<int>> ans;
         vector<int> temp;
+        TreeNode* top;
         while(q.size() > 1){
-            TreeNode* top = q.front();
+            top = q.front();
             q.pop();
             if(top == NULL){
                 ans.push_back(temp);
