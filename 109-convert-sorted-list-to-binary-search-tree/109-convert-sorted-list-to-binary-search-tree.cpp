@@ -27,9 +27,7 @@ public:
         ListNode* before = head;
         ListNode* forward = head->next;
         if(!forward){
-            TreeNode* node = new TreeNode(head->val);
-            //cout << node->val<<'\n';
-            return node;
+            return new TreeNode(head->val);
         }
         while(forward){
             forward = forward->next;
@@ -39,11 +37,7 @@ public:
                 mid = mid->next;
             }
         }
-        
         TreeNode* root = new TreeNode(mid->val);
-        //cout << before->val <<'\n';
-        
-        //cout << mid->val <<' '<<'\n';
         root->right = re(mid->next);
         before->next = NULL;
         if(head != mid)
