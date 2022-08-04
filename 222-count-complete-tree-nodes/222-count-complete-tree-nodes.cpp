@@ -11,12 +11,20 @@
  */
 class Solution {
 public:
-    int ans;
+    //divide and conquer
     int countNodes(TreeNode* root) {
         if(!root) return 0;
-        if(root->left) countNodes(root->left);
-        ans++;
-        if(root->right) countNodes(root->right);
-        return ans;
+        TreeNode* l = root, * r = root;
+        int leftH = 0, rightH = 0;
+        while(l){
+            l = l->left;
+            leftH++;
+        }
+        while(r){
+            r = r->right;
+            rightH++;
+        }
+        if(rightH == leftH) return (1<<rightH)-1;
+        else return 1 + countNodes(root->left) + countNodes(root->right);
     }
 };
