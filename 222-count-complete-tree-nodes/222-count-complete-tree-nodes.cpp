@@ -13,7 +13,6 @@ class Solution {
 public:
     //divide and conquer
     int countNodes(TreeNode* root) {
-        if(!root) return 0;
         TreeNode* l = root, * r = root;
         int leftH = 0, rightH = 0;
         while(l){
