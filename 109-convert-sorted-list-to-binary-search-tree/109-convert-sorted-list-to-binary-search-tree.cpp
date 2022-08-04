@@ -23,12 +23,10 @@ class Solution {
 public:
     TreeNode* re(ListNode* head){
         if(!head) return NULL;
+        if(!head->next) return new TreeNode(head->val);
         ListNode* mid = head;
         ListNode* before = head;
         ListNode* forward = head->next;
-        if(!forward){
-            return new TreeNode(head->val);
-        }
         while(forward){
             forward = forward->next;
             if(forward){
