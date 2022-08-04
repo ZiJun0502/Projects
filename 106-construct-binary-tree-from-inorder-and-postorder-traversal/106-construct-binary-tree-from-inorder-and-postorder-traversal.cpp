@@ -12,24 +12,27 @@
 class Solution {
 public:
     vector<int> in, po;
-    TreeNode* re(int inl, int inr, int prel, int prer){
+    void re(int inl, int inr, int prel, int prer, TreeNode* now){
+        if(inl >= inr) return;
         int i;
-        TreeNode* root = new TreeNode(po[prer]);
-        if(inl >= inr) return root;
         for(i = inl; i <= inr ; i++){
-            if(in[i] == root->val) break;
+            if(in[i] == now->val) break;
         }
         if(i-inl > 0){
-            root->left = re(inl, i-1, prel, prel+i-1-inl);
-        }else root->left = NULL;
+            now->left = new TreeNode(po[prel + i - inl - 1]);
+            re(inl, i-1, prel, prel+i-1-inl, now->left);
+        }else now->left = NULL;
         if(inr-i > 0){
-            root->right = re(i+1, inr, prel+i-inl, prer-1);
-        }else root->right = NULL;
-        return root;
+            now->right = new TreeNode(po[prer-1]);
+            re(i+1, inr, prel+i-inl, prer-1, now->right);
+        }else now->right = NULL;
+        
     }
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
-        int n = postorder.size()-1;
+        int n = postorder.size();
         in = inorder, po = postorder;
-        return re(0, n, 0, n);
+        TreeNode* root = new TreeNode(postorder[postorder.size()-1]);
+        re(0, n-1, 0, n-1, root);
+        return root;
     }
 };
