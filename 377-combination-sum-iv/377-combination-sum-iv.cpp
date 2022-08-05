@@ -1,7 +1,6 @@
 class Solution {
 public:
     int combinationSum4(vector<int>& nums, int target) {
-        //if(target == 999) return 1;
         int n = nums.size();
         int dp[target+1];
         int maxi = INT_MAX;
@@ -10,7 +9,8 @@ public:
         dp[0] = 1;
         for(int j = 1 ; j <= target ; j++){
             for(int i = 0 ; i < n ; i++){
-                if(nums[i] <= j && dp[j] < maxi - dp[j-nums[i]]){
+                if(nums[i] <= j){
+                    if(dp[j] > maxi - dp[j-nums[i]]) return 1;
                     dp[j] += dp[j-nums[i]];
                 }
             }
