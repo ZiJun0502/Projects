@@ -10,7 +10,7 @@ public:
         for(int j = 1 ; j <= target ; j++){
             for(int i = 0 ; i < n ; i++){
                 if(nums[i] <= j){
-                    if(dp[j] > maxi - dp[j-nums[i]]) return 1;
+                    if(dp[j] > maxi - dp[j-nums[i]]) break;
                     dp[j] += dp[j-nums[i]];
                 }
             }
