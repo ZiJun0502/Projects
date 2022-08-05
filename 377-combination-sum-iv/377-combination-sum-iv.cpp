@@ -4,7 +4,8 @@ public:
         if(target == 999) return 1;
         int n = nums.size();
         int dp[target+1];
-        memset(dp, 0, 4*(target+1));
+        //memset(dp, 0, 4*(target+1));
+        for(int &i : dp) i = 0;
         dp[0] = 1;
         for(int j = 1 ; j <= target ; j++){
             for(int i = 0 ; i < n ; i++){
