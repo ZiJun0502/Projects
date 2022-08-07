@@ -12,7 +12,7 @@ public:
             int key = i.first;
             bool good = 1;
             for(int j = 0 ; j < n ; j++){
-                //if(j > 0 && d[j] == d[j-1]) continue;
+                if(j > 0 && d[j] == d[j-1]) continue;
                 if(d[j] % key != 0){
                     ans += i.second;
                     //cout << i.first <<'\n';
