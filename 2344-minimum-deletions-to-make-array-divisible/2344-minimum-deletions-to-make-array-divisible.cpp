@@ -10,7 +10,8 @@ public:
         sort(nums.begin(),nums.end());
         int i = 0;
         int count = 0;
-        while(i < nums.size()){
+        n = nums.size();
+        while(i < n){
             if(gc % nums[i] == 0){
                 return count;
             }
