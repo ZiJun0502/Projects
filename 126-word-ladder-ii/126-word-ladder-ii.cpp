@@ -22,7 +22,7 @@ public:
                 break ;
             }
         }
-        map<string, int> wti ; // word to index
+        unordered_map<string, int> wti ; // word to index
         for(int i = 0 ; i < wordList.size() ; i++)
         {
             wti.insert({wordList[i], i}) ;
