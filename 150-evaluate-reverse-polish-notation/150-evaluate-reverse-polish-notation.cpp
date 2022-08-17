@@ -10,7 +10,7 @@ public:
         for(int i = 0 ; i < n ; i++){
             // for(int i = 0 ; i < size ; i++) cout << stack[i] <<' ';
             // cout << '\n';
-            if(tokens[i].size() == 1 && isoper(tokens[i][0])){
+            if(tokens[i].size() < 2 && isoper(tokens[i][0])){
                 switch(tokens[i][0]){
                     case'+':
                         stack[size-2] = stack[size-1] + stack[size-2];
