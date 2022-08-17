@@ -5,7 +5,7 @@ public:
         auto isoper=[](char c){
             return c == '/' || c == '+' || c =='-' || c == '*';
         };
-        int stack[5002];
+        int stack[5000];
         int size = 0;
         for(int i = 0 ; i < n ; i++){
             // for(int i = 0 ; i < size ; i++) cout << stack[i] <<' ';
