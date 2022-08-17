@@ -10,6 +10,6 @@ public:
             }
             m.insert(temp);
         }
-        return (int)m.size();
+        return m.size();
     }
 };
