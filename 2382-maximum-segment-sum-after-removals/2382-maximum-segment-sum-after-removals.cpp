@@ -1,42 +1,36 @@
 class Solution {
 public:
-    #define ll long long
-    vector<long long> maximumSegmentSum(vector<int>& nums, vector<int>& remove) {
-        int n = nums.size();
-        vector<ll> pre(n,0);
-
-        pre[0] = nums[0];
-        for(int i = 1; i < n; i++){
-            pre[i] += pre[i-1] + nums[i];        // create prefix sum
-        }
-
-        set<int> ind;         // ind will store removed index
-        ind.insert(-1);
-        ind.insert(n);
-
-        vector<ll> ans(n,0);
-        multiset<ll> mp;     // mp will store sum of all segments 
-        mp.insert(pre[n-1]);
-
-        for(int i = 0; i < n; i++){
-			int cur = remove[i];
-
-            auto it = ind.lower_bound(cur);
-            int r = *it;                         // right removed index
-            int l = *(prev(it));                 // left removed index
-            
-            ll cur_sum = pre[r-1] - ( l == -1 ? 0 : pre[l] );
-            mp.erase(mp.find(cur_sum));                 // remove current segment sum
-
-            ll left_sum = ( cur == 0 ? 0 : pre[cur-1] ) - (l == -1? 0 : pre[l] );
-            ll right_sum = (r == 0 ? 0 : pre[r-1]) - pre[cur];
-
-            mp.insert(left_sum);                // insert left segment sum
-            mp.insert(right_sum);               // insert right segment sum
-
-            ind.insert(cur);
-            ans[i] = *(mp.rbegin());           // take the maximum
-        }
-        return ans;
+    vector<long long> group, parent;
+    int find(int i){
+        if(parent[i] == i) return i;
+        else return parent[i] = find(parent[i]);
     }
+    void merge(int i, int j){
+        int head1 = find(j);
+        int head2 = find(i);
+        if(head1 == head2) return;
+        group[head1] += group[head2];
+        group[head2] = group[head1];
+        parent[head2] = head1;
+    }
+    vector<long long> maximumSegmentSum(vector<int>& nums, vector<int>& Q) {
+        int n = nums.size();
+
+        vector<long long> ans(n);
+        ans[n - 1] = 0;
+        group.resize(n), parent.resize(n);
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+        }
+        for (int i = n - 1; i > 0; i--) {
+            int ind = Q[i];
+            group[ind] = nums[ind];
+            if (ind > 0 && group[ind-1] != 0) merge(ind, ind - 1);
+            if (ind < n - 1 && group[ind + 1] != 0) merge(ind, ind + 1);
+            ans[i - 1] = max(ans[i], group[find(ind)]);
+        }
+        //for (int i : group) cout << i << ' ';
+
+        return ans;
+}
 };
