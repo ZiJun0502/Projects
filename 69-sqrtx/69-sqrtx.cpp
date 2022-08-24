@@ -1,7 +1,7 @@
 class Solution {
 public:
     int mySqrt(int x) {
-        long mid;
+        long long mid;
         int l = 0, r = x, ans;
         while(r >= l){
             mid = r + l >> 1;
