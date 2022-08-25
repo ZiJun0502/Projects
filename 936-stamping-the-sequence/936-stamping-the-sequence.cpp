@@ -27,9 +27,10 @@ public:
                     Stamp(i, m);
                     ans.push_back(i);
                     temp = 1;
+                    round++;
                 }
             }
-            if(!temp || ans.size() > 10 * n) return {};
+            if(!temp || round > 10 * n) return {};
         }
         reverse(begin(ans), end(ans));
         return ans;
