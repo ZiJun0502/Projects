@@ -26,7 +26,7 @@ public:
         while(go){
             //cout << go->val << ' ' << now->val <<'\n';
             if(go->val != prev->val) return 0;
-            go = go->next, prev = prev->next;
+            else go = go->next, prev = prev->next;
         }
         return 1;
     }
