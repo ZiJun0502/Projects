@@ -11,37 +11,28 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        int len = 0;
-        ListNode* iter = head;
-        while(iter != NULL)
-        {
-            len++;
-            iter = iter->next;
+        ListNode* now, *prev = NULL, *next = head, *go;
+        now = head, go = head->next;
+        while(go && go->next){
+            go = go->next->next;
+            now = next;
+            next = now->next;
+            now->next = prev;
+            prev = now;
         }
-        ListNode* mid = head;
-        // get mid
-        for(int i = 0 ; i < len / 2  ; i++)
-        {
-            mid = mid -> next;
+        if(go){
+            now = next;
+            next = now->next;
+            now->next = prev;
+            prev = now;
+            go = next;
+        }else go = next->next;
+        
+        while(go){
+            //cout << go->val << ' ' << now->val <<'\n';
+            if(go->val != now->val) return 0;
+            go = go->next, now = now->next;
         }
-        if(len %2 != 0) mid = mid ->next;
-        // reverse half of the linked list
-        ListNode* next = NULL;
-        ListNode* prev = NULL;
-        iter = head;
-        for(int i = 0 ; i < len/2 ; i++)
-        {
-            next = iter->next;
-            iter->next = prev;
-            prev = iter;
-            iter = next;
-        }
-        for(int i = 0 ; i < len / 2 ; i++)
-        {
-            if(prev->val != mid->val) return false;
-            prev = prev->next;
-            mid = mid->next;
-        }
-        return true;
+        return 1;
     }
 };
