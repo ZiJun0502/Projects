@@ -11,27 +11,22 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        ListNode* now, *prev = NULL, *next = head, *go;
-        now = head, go = head->next;
+        ListNode* now, *prev = NULL, *next, *go;
+        now = head, go = head;
         while(go && go->next){
             go = go->next->next;
-            now = next;
             next = now->next;
             now->next = prev;
-            prev = now;
+            prev = now, now = next;
         }
         if(go){
-            now = next;
-            next = now->next;
-            now->next = prev;
-            prev = now;
-            go = next;
-        }else go = next->next;
-        
+            go = now->next;
+        }
+        else go = now;
         while(go){
             //cout << go->val << ' ' << now->val <<'\n';
-            if(go->val != now->val) return 0;
-            go = go->next, now = now->next;
+            if(go->val != prev->val) return 0;
+            go = go->next, prev = prev->next;
         }
         return 1;
     }
