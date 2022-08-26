@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         vector<vector<int>> res;
-        size_t i = 0;
+        int i = 0;
         int n = intervals.size();
         // Left part (no intersection with newInterval)
         while (i < n && intervals[i][1] < newInterval[0]) {
