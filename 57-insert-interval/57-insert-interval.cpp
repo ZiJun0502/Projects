@@ -19,7 +19,7 @@ public:
         res.push_back(newInterval);
         
         // Right part (no intersection with newInterval)
-        while (i < n) {
+        while (i < n && intervals[i][0] > newInterval[1]) {
             res.push_back(intervals[i]);
             ++i;
         }
