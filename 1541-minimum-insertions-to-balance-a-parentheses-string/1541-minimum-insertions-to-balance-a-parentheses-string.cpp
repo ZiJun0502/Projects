@@ -10,11 +10,10 @@ public:
                 if(count){
                     if(i+1 < n && s[i+1] == ')'){
                         i++;
-                        count--;
                     }else{
                         ans++;
-                        count--;
                     }
+                    count--;
                 }
                 else{
                     if(i+1 < n && s[i+1] ==')'){
