@@ -3,7 +3,7 @@ public:
     #define MAX 214748365
     int n;
     vector<int> ans;
-    bool re(string s, int j=0, int last=0, int llast=0){
+    bool re(string& s, int j=0, int last=0, int llast=0){
         int val = 0;
         if(j == n && ans.size() > 2){
             return 1;
