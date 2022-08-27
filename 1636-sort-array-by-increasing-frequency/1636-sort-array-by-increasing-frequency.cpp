@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> frequencySort(vector<int>& nums) {
-        int count[202] = {};
+        int count[201] = {};
         for (auto n : nums)
             ++count[n + 100];
         sort(begin(nums), end(nums), [&](int a, int b) {
