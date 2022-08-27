@@ -2,7 +2,7 @@ class Solution {
 public:
     int minSwaps(string s) {
         int n = s.size();
-        bool stack[500000];
+        bool stack[n/2];
         memset(stack, 0, sizeof(stack));
         bool* size = stack;
         for(int i = 0 ; i < n ; i++){
