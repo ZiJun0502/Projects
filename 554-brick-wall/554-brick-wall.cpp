@@ -9,8 +9,8 @@ public:
             for(int j : i){
                 len += j;
                 if(len != n){
-                count[len-1]++;
-                maxi = max(maxi, count[len-1]);
+                    count[len-1]++;
+                    maxi = max(maxi, count[len-1]);
                 }
              
             }
