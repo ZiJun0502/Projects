@@ -8,9 +8,10 @@ public:
             int len = 0;
             for(int j : i){
                 len += j;
-                if(len != n)
-                count[len-1]++;
-                maxi = max(maxi, count[len-1]);
+                if(len != n){
+                    count[len-1]++;
+                    maxi = max(maxi, count[len-1]);
+                }
             }
         }
         return wall.size() - maxi;
