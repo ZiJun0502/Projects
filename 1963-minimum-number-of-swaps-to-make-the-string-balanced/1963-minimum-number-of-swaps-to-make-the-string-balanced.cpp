@@ -2,7 +2,8 @@ class Solution {
 public:
     int minSwaps(string s) {
         int n = s.size();
-        bool* stack = new bool[n/2];
+        bool stack[500000];
+        memset(stack, 0, sizeof(stack));
         bool* size = stack;
         for(int i = 0 ; i < n ; i++){
             if(s[i] == '['){
