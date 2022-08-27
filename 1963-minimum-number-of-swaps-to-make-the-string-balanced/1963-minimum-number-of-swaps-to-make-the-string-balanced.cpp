@@ -12,8 +12,7 @@ public:
             }
             else{
                 if(size){
-                    size--;
-                    if(stack[size] == 0){
+                    if(stack[--size] == 0){
                         size++;
                     }
                 }
