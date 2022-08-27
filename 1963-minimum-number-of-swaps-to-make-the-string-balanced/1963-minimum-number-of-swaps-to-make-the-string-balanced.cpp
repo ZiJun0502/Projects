@@ -2,26 +2,24 @@ class Solution {
 public:
     int minSwaps(string s) {
         int n = s.size();
-        //bool stack[n/2];
-        vector<bool> stack(n/2);
-        //memset(stack, 0, sizeof(stack));
+        bool stack[n/2];
+        memset(stack, 0, sizeof(stack));
         //bool* size = stack;
-        auto size = stack.begin();
+        int size = 0;
         for(int i = 0 ; i < n ; i++){
             if(s[i] == '['){
-                *size = 1;
-                size++;
+                stack[size++] = 1;
             }
             else{
-                if(size - stack.begin()){
+                if(size){
                     size--;
-                    if(*size == 0){
+                    if(stack[size] == 0){
                         size++;
                     }
                 }
                 
             }
         }
-        return (size-stack.begin()+1)/2;
+        return (size+1)/2;
     }
 };
