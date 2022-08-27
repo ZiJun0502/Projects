@@ -1,10 +1,8 @@
 class Solution {
 public:
     int leastBricks(vector<vector<int>>& wall) {
-        
-        auto temp = wall[0];
-        int n = 0;
-        for(int j : temp) n += j;
+        int n = 0, maxi = 0;
+        for(int i : wall[0]) n += i;
         unordered_map<int,int> count;
         for(auto i : wall){
             int len = 0;
@@ -12,12 +10,8 @@ public:
                 len += j;
                 if(len != n)
                 count[len-1]++;
+                maxi = max(maxi, count[len-1]);
             }
-        }
-        //for(int i : count)cout << i <<' ';
-        int maxi = 0;
-        for(auto i : count){
-            maxi = max(i.second, maxi);
         }
         return wall.size() - maxi;
     }
