@@ -1,37 +1,21 @@
 class Solution {
 public:
-    int n, m, tar = 0;
-    int temp = 0, ans = 0;
-    unordered_set<int> reco;
-    vector<vector<int>> arr;
-    void re(int now = 0){
-        if(reco.size() == tar){
-            int temp = n;
-            //for(int i : reco)cout << i <<' ';
-            //cout << '\n';
-            for(int i = 0 ; i < n ; i++){
-                for(int j = 0 ; j < m ; j++){
-                    if(reco.find(j) != reco.end()) continue;
-                    if(arr[i][j] == 1){
-                        temp--;
-                        break;
-                    }
-                }
-            }
-            ans = max(ans, temp);
-            return;
+    int next_popcount(int n) {
+    int c = (n & -n), r = n + c;
+    return (((r ^ n) >> 2) / c) | r;
+}
+int maximumRows(vector<vector<int>>& mat, int cols) {
+    int m = mat.size(), n = mat[0].size(), res = 0;
+    for (int mask = (1 << cols) - 1; mask < (1 << n); mask = next_popcount(mask)) {
+        int rows = 0;
+        for (int i = 0, j = 0; i < m; ++i) {
+            for (j = 0; j < n; ++j)
+                if (mat[i][j] && (mask & (1 << j)) == 0)
+                    break;
+            rows += j == n;
         }
-        for(int i = now ; i < m-(tar - reco.size())+1 ; i++){
-            reco.insert(i);
-            re(i+1);
-            reco.erase(i);
-        }
+        res = max(res, rows);
     }
-    int maximumRows(vector<vector<int>>& mat, int cols) {
-        n = mat.size(), m = mat[0].size();
-        tar = cols;
-        arr = mat;
-        re();
-        return ans;
-    }
+    return res;
+}
 };
