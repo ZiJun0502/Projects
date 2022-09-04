@@ -11,7 +11,9 @@ public:
         vector<int> ans(n);
         for (auto& meet : meetings) {
             // no room
-            back:
+            if(time < meet[0]){
+                time = meet[0];
+            }
             while(p.size() > 0 && time >= p.top().first || empty.empty()) {
                 auto temp = p.top();
                 p.pop();
@@ -20,10 +22,7 @@ public:
                 }
                 empty.insert(temp.second);
             }
-            if(time < meet[0]){
-                time = meet[0];
-                goto back;
-            }
+            
             int room = *empty.begin();
             empty.erase(empty.begin());
             //{endtime, room used}
