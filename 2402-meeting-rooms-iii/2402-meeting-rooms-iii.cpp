@@ -1,35 +1,26 @@
 class Solution {
 public:
-    int mostBooked(int n, vector<vector<int>>& meetings) {
-        sort(begin(meetings), end(meetings));
-        int m = meetings.size();
-        priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> p;
-        long long j = 0;
-        long long time = meetings[0][0];
-        set<int> empty;
-        for (int i = 0; i < n; i++) empty.insert(i);
-        vector<int> ans(n);
-        for (auto& meet : meetings) {
-            // no room
-            if(time < meet[0]){
-                time = meet[0];
-            }
-            while(p.size() > 0 && time >= p.top().first || empty.empty()) {
-                auto temp = p.top();
-                p.pop();
-                if(empty.empty()){
-                    time = max(temp.first, time);
-                }
-                empty.insert(temp.second);
-            }
-            
-            int room = *empty.begin();
-            empty.erase(empty.begin());
-            //{endtime, room used}
-            p.push({ time + meet[1] - meet[0], room });
-            ans[room]++;
+    int mostBooked(int n, vector<vector<int>>& meets) {
+    int cnt[101] = {};
+    sort(begin(meets), end(meets));
+    priority_queue<int, vector<int>, greater<int>> avail;
+    priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> busy;
+    for (int i = 0; i < n; ++i)
+        avail.push(i);
+    for (auto &m : meets) {
+        while (!busy.empty() && busy.top().first <= m[0]) {
+            avail.push(busy.top().second);
+            busy.pop();
         }
-        //for (int i : ans)cout << i << ' '; cout << '\n';
-        return max_element(ans.begin(), ans.end()) - ans.begin();
+        long long start = avail.empty() ? busy.top().first : m[0], duration = m[1] - m[0];
+        int room = avail.empty() ? busy.top().second : avail.top();
+        if (avail.empty())
+            busy.pop();
+        else
+            avail.pop();
+        ++cnt[room];
+        busy.push({start + duration, room});
     }
+    return max_element(begin(cnt), end(cnt)) - begin(cnt);
+}
 };
