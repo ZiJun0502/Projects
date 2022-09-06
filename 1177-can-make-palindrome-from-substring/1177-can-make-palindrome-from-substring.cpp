@@ -14,16 +14,15 @@ public:
         }
         vector<bool> ans;
         for(vector<int>& q : queries){
-            int l = q[0], r = q[1], k = q[2];
             int len = 0;
             for(int i = 0 ; i < 26 ; i++){
-                len += (arr[i][r+1] - arr[i][l]) % 2;
+                len += (arr[i][q[1]+1] - arr[i][q[0]]) % 2;
             }
             // ebyvmjqbmb
             
             //cout << len << '\n';
             //cout << count <<' ' << len << '\n';
-            ans.push_back(k >= len / 2);
+            ans.push_back(q[2] >= len / 2);
         }
         return ans;
         
