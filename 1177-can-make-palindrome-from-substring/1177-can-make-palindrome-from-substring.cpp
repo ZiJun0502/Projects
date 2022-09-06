@@ -19,14 +19,13 @@ public:
         for(auto q : queries){
             int l = q[0], r = q[1], k = q[2];
             int temp[26] = {};
-            int count = 0;
+            int len = 0;
             for(int i = 0 ; i < 26 ; i++){
                 temp[i] = arr[i][r+1] - arr[i][l];
-                count+= temp[i] - (temp[i]%2);
+                len += temp[i] % 2;
             }
             // ebyvmjqbmb
             
-            int len = r - l + 1 - count;
             //cout << len << '\n';
             //cout << count <<' ' << len << '\n';
             ans.push_back(k >= len / 2);
