@@ -1,17 +1,18 @@
 class Solution {
 public:
-   int longestBeautifulSubstring(string w) {
-    int res = 0, j = 0;
-    for (int i = 0; i < w.size(); ++i) {
-        if (w[i] == 'a') {
-            int cnt = 0;
-            for (j = i + 1; j < w.size() && w[j - 1] <= w[j]; ++j)
-                cnt += w[j - 1] < w[j];
-            if (cnt == 4)
-                res = max(res, j - i);
-            i = j - 1;
+    int longestBeautifulSubstring(string word) {
+    int n = word.size();
+    int ans = 0, j = 0;
+    for(int i = 0 ; i < n-4 ; i++) {
+        if (word[i] == 'a') {
+            int count = 0;
+            for(j = i+1 ; j < n && word[j] >= word[j-1]; j++){
+                count+= word[j] > word[j-1];
+            }
+            if(count == 4) ans = max(ans, j-i);
+            i = j-1;
         }
     }
-    return res;
+    return ans;
 }
 };
