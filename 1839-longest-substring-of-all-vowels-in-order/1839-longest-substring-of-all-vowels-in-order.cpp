@@ -7,7 +7,7 @@ public:
     int now = 0;
     for (int i = 0; i < n; i++) {
         if (now == 0 && word[i] == 'a') {
-            now++;
+            now = 1;
             temp++;
         }
         else if (now > 0) {
