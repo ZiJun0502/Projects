@@ -7,9 +7,8 @@ public:
     int now = 0;
     for (int i = 0; i < n; i++) {
         if (now == 0 && word[i] == 'a') {
-            here:
-            now=1;
-            temp=1;
+            now++;
+            temp++;
         }
         else if (now > 0) {
             if (now < 5 && word[i] == dic[now]) {
@@ -20,10 +19,11 @@ public:
                 temp++;
             }
             else {
-                if (word[i] == 'a')
-                    goto here;
                 temp = 0;
                 now = 0;
+                if (word[i] == 'a'){
+                    temp++, now++;
+                }
             }
         }
         if (now == 5) ans = max(ans, temp);
