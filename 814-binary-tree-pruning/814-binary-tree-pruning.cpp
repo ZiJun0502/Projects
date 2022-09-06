@@ -15,7 +15,10 @@ public:
         if(root){
             root->left = help(root->left);
             root->right = help(root->right);
-            if(!root->left && !root->right && root->val==0) return NULL;
+            if(!root->left && !root->right && root->val==0){
+                delete root;
+                return NULL;
+            }
         }
         return root;
     }
