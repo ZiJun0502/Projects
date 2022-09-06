@@ -18,8 +18,9 @@ public:
             if(!root->left && !root->right && root->val==0){
                 return NULL;
             }
+            return root;
         }
-        return root;
+        return NULL;
     }
     TreeNode* pruneTree(TreeNode* root) {
         return help(root);
