@@ -20,7 +20,7 @@ public:
             }
             return root;
         }
-        return nullptr;
+        return NULL;
     }
     TreeNode* pruneTree(TreeNode* root) {
         return help(root);
