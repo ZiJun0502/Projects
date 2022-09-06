@@ -11,12 +11,9 @@ public:
             for(int j = 0 ; j < n ;j ++){
                 arr[i][j+1] += arr[i][j];
             }
-        }//1 0 1 0 0 1
-         //1 1 2 2 2 3 3
-         //0 1 1 2 2 2 3 3
-        // freq, freq of freq
+        }
         vector<bool> ans;
-        for(auto q : queries){
+        for(vector<int>& q : queries){
             int l = q[0], r = q[1], k = q[2];
             int len = 0;
             for(int i = 0 ; i < 26 ; i++){
