@@ -22,7 +22,7 @@ public:
                 temp = 0;
                 now = 0;
                 if (word[i] == 'a'){
-                    temp++, now++;
+                    temp = 1, now = 1;
                 }
             }
         }
