@@ -20,10 +20,10 @@ public:
                 c1++;
             }
             else{
-                c--,c1--;
+                c--;
+                c1--;
             }
         }
-        //cout << a << ' '<< b;
         c1 = c = 0;
         for(int i = 0 ; i < n ; i++){
             if(nums[i] == a) c++;
