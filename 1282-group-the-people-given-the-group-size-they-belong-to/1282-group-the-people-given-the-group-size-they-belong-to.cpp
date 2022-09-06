@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> groupThePeople(vector<int>& group) {
         int n = group.size();
-        unordered_map<int, vector<int>> count;
+        vector<int> count[n+1];
         vector<vector<int>> ans;
         for(int i = 0 ; i < n ; i++){
             count[group[i]].push_back(i);
