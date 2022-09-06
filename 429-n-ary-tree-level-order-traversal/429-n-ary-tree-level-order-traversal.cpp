@@ -22,7 +22,7 @@ class Solution {
 public:
     vector<vector<int>> levelOrder(Node* root) {
         vector<vector<int>> ans;
-        if(!root) return ans;
+        if(!root) return {};
         queue<Node*> q;
         q.push(root);
         q.push(NULL);
