@@ -7,7 +7,7 @@ public:
         if (word[i] == 'a') {
             int count = 0;
             for(j = i+1 ; j < n && word[j] >= word[j-1]; j++){
-                count+= word[j] > word[j-1];
+                if(word[j] != word[j-1]) count++;
             }
             if(count == 4) ans = max(ans, j-i);
             i = j-1;
