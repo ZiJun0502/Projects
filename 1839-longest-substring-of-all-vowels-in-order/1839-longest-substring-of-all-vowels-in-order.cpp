@@ -3,7 +3,7 @@ public:
     int longestBeautifulSubstring(string word) {
     int n = word.size();
     int ans = 0, temp = 0;
-    string dic = "aeiou";
+    char dic[] = "aeiou";
     int now = 0;
     for (int i = 0; i < n; i++) {
         if (now == 0 && word[i] == 'a') {
