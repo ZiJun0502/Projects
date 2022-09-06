@@ -18,10 +18,6 @@ public:
             for(int i = 0 ; i < 26 ; i++){
                 len += (arr[i][q[1]+1] - arr[i][q[0]]) % 2;
             }
-            // ebyvmjqbmb
-            
-            //cout << len << '\n';
-            //cout << count <<' ' << len << '\n';
             ans.push_back(q[2] >= len / 2);
         }
         return ans;
