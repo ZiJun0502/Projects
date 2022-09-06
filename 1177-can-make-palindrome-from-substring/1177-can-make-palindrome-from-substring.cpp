@@ -18,11 +18,9 @@ public:
         vector<bool> ans;
         for(auto q : queries){
             int l = q[0], r = q[1], k = q[2];
-            int temp[26] = {};
             int len = 0;
             for(int i = 0 ; i < 26 ; i++){
-                temp[i] = arr[i][r+1] - arr[i][l];
-                len += temp[i] % 2;
+                len += (arr[i][r+1] - arr[i][l]) % 2;
             }
             // ebyvmjqbmb
             
