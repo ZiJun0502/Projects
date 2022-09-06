@@ -8,7 +8,7 @@ public:
     for (int i = 0; i < n; i++) {
         if (now == 0 && word[i] == 'a') {
             now = 1;
-            temp++;
+            temp = 1;
         }
         else if (now > 0) {
             if (now < 5 && word[i] == dic[now]) {
