@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    string ans = "";
+    string ans;
     void help(TreeNode* root){
         ans += to_string(root->val);
         if(root->left){
