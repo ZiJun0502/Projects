@@ -3,8 +3,8 @@ public:
     int largestRectangleArea(vector<int>& heights) {
         heights.push_back(0);
         int n = heights.size();
-        int stack[n];
-        memset(stack, 0 , sizeof(stack));
+        int stack[100000] = {};
+        //memset(stack, 0 , sizeof(stack));
         int size = 0, ans = 0;
         for(int i = 0 ; i < n ; i++){
             while(size > 0 && heights[i] < heights[stack[size-1]]){
