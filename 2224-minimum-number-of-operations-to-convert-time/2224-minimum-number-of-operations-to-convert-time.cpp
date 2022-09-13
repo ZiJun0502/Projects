@@ -15,7 +15,7 @@ public:
         return ans;
     }
     int convertTime(string cur, string cor) {
-        int ans = 0, h1, h0, m1, m0;
+        int ans, h1, h0, m1, m0;
         m1 = ((cor[3]-'0') * 10) + cor[4]-'0', m0 = ((cur[3]-'0') * 10) + cur[4]-'0';
         h1 = ((cor[0]-'0') * 10) + cor[1]-'0', h0 = ((cur[0]-'0') * 10) + cur[1]-'0';
         if (h0 > h1) {
