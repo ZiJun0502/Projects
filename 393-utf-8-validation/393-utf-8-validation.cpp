@@ -5,7 +5,6 @@ public:
         bitset<8> b;
         for(int i = 0 ; i < n ; i++){
             b = data[i];
-            cout << b << '\n';
             if(b[7] == 1){
                 int count = 0;
                 for(int j = 6 ; j >= 0 ; j--){
@@ -16,12 +15,9 @@ public:
                 if(count == 0) return false;
                 while(count-- && i+1 < n){
                     b = data[++i];
-                    //cout << b << '\n';
-                    //cout << b[b.size()-1] << b[b.size()-2] <<'\n';
                     if(b[b.size()-1] != 1 || b[b.size()-2] != 0) 
                         return false;
                 }
-                //cout << count;
                 if(count != -1) return false;
             }
             else continue;
