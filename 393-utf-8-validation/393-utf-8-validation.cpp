@@ -11,8 +11,7 @@ public:
                     if(b[j] == 1) count++;
                     else break;
                 }
-                if(count > 3) return false;
-                if(count == 0) return false;
+                if(count > 3 || count == 0) return false;
                 while(count-- && i+1 < n){
                     b = data[++i];
                     if(b[b.size()-1] != 1 || b[b.size()-2] != 0) 
