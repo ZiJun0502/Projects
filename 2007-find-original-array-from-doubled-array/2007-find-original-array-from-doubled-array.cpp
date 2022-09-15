@@ -12,16 +12,14 @@ public:
         }
         if(m[0] % 2 == 0){
             ans = vector<int>(m[0]/2, 0);
-            //changed.resize(count);
+            changed.resize(count);
         }else return {};
-        //cout << count << '\n';
-        int size = count;
-        for(int j = 0 ; j < size ; j++){
+        for(int i : changed){
             //cout << i << ' ';
-            m[changed[j]]++;
-            if(changed[j] < 50001 && m[changed[j]*2]>0){
-                ans.push_back(changed[j]);
-                m[changed[j]]--, m[changed[j]*2]--;
+            m[i]++;
+            if(i < 50001 && i != 0 && m[i*2]>0){
+                ans.push_back(i);
+                m[i]--, m[i*2]--;
                 count -= 2;
             }
         }
