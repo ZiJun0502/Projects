@@ -5,6 +5,15 @@ public:
         sort(begin(changed), end(changed), greater<int>());
         vector<int> ans;
         int count = changed.size();
+        if(count % 2) return {};
+        while(count > 0 && changed[count-1] == 0){
+            count--;
+            m[0]++;
+        }
+        if(m[0] % 2 == 0){
+            ans = vector<int>(m[0]/2, 0);
+            changed.resize(count);
+        }else return {};
         for(int i : changed){
             //cout << i << ' ';
             m[i]++;
