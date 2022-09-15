@@ -2,11 +2,10 @@ class Solution {
 public:
     vector<int> findOriginalArray(vector<int>& changed) {
         int m[100001] = {};
-        
+        sort(begin(changed), end(changed), greater<int>());
         vector<int> ans;
         int count = changed.size();
         if(count % 2) return {};
-        sort(begin(changed), end(changed), greater<int>());
         while(count > 0 && changed[count-1] == 0){
             count--;
             m[0]++;
