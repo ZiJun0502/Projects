@@ -19,7 +19,7 @@ public:
         for(int j = 0 ; j < size ; j++){
             //cout << i << ' ';
             m[changed[j]]++;
-            if(changed[j] < 50001 && changed[j] != 0 && m[changed[j]*2]>0){
+            if(changed[j] < 50001 && m[changed[j]*2]>0){
                 ans.push_back(changed[j]);
                 m[changed[j]]--, m[changed[j]*2]--;
                 count -= 2;
