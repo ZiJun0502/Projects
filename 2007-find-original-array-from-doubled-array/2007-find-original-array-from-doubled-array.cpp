@@ -8,7 +8,7 @@ public:
         for(int i : changed){
             //cout << i << ' ';
             m[i]++;
-            if(i <= 50000 && i != 0 && m[i*2]>0 || i == 0 && m[i] > 1){
+            if(i < 50001 && i != 0 && m[i*2]>0 || i == 0 && m[i] > 1){
                 ans.push_back(i);
                 m[i]--, m[i*2]--;
                 count -= 2;
