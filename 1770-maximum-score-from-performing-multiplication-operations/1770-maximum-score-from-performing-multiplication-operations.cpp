@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> nums, mul;
-    int dp[1001][1001];
+    int dp[1000][1000];
     int n, m;
     int re(int now, int l, int r){
         if(now == m) return 0;
