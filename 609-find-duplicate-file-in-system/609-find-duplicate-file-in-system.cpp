@@ -18,7 +18,7 @@ public:
             }
         }
         vector<vector<string>> ans;
-        for(auto i : m){
+        for(auto& i : m){
             if(i.second.size() > 1){
                 ans.push_back(i.second);
             }
