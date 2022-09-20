@@ -6,9 +6,7 @@ public:
         if(l > r0 || r < l0) return 0;
         if(l0 >= l && r0 <= r) return seg[ind];
         int mid = l0 + r0 >> 1;
-        int left = query(l, r, l0, mid, ind*2);
-        int right = query(l, r, mid+1, r0, ind*2+1);
-        return max(left, right);
+        return max(query(l, r, l0, mid, ind*2), query(l, r, mid+1, r0, ind*2+1));
     }
     int set_val(int l0, int r0, int i, int val, int ind = 1){
         if(l0 == r0) return seg[ind] = max(seg[ind],val);
