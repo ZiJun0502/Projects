@@ -14,8 +14,7 @@ public:
         if(mid >= i){
             maxi = set_val(l0, mid, i, val, ind*2);
         }else maxi = set_val(mid+1, r0, i, val, ind*2+1);
-        seg[ind] = max(seg[ind], maxi);
-        return seg[ind];
+        return seg[ind] = max(seg[ind], maxi);
     }
     int lengthOfLIS(vector<int>& nums, int k) {
         int n = nums.size();
