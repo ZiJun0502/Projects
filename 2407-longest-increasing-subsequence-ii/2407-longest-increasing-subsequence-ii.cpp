@@ -11,7 +11,7 @@ public:
         return max(left, right);
     }
     int set_val(int l0, int r0, int i, int val, int ind = 1){
-        if(l0 == r0) return seg[ind] = val;
+        if(l0 == r0) return seg[ind] = max(seg[ind],val);
         int mid = l0 + r0 >> 1, maxi;
         if(mid >= i){
             maxi = set_val(l0, mid, i, val, ind*2);
@@ -25,10 +25,7 @@ public:
         int maxi = *max_element(nums.begin(), nums.end());
         for(int i = 0 ; i < n ; i++){
             int temp = query(max(nums[i]-k, mini), nums[i]-1, mini, maxi);
-            if(temp >= ans[nums[i]]){
-                ans[nums[i]] = temp+1;
-                set_val(mini, maxi, nums[i], temp+1);
-            }
+            set_val(mini, maxi, nums[i], temp+1);
             //for(int i = mini ; i <= maxi ; i++) cout << ans[i]<<' ';cout << '\n';
         }
         return seg[1];
