@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int seg[3*100001];
+    int seg[300003];
     int ans[100001];
     int query(int l, int r, int l0, int r0, int ind = 1){
         if(l > r0 || r < l0) return 0;
