@@ -6,7 +6,7 @@ public:
         int n = nums.size();
         vector<int> ans(n);
         int i = 0;
-        for(auto& q : queries){
+        for(vector<int>& q : queries){
             int ind = q[1], val = q[0];
             int temp = nums[ind];
             if(temp % 2 == 0) {
