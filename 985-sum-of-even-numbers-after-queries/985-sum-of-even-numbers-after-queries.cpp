@@ -8,7 +8,7 @@ public:
         int i = 0;
         for(auto& q : queries){
             int ind = q[1], val = q[0];
-            int temp = nums[ind], tempp = temp + val;
+            int temp = nums[ind];
             if(temp % 2 == 0) {
                 if(val % 2 == 0) now += val;
                 else now -= temp;
