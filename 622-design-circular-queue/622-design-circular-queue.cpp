@@ -1,32 +1,43 @@
 class MyCircularQueue {
-private:
-    vector<int> v;
-    int start = 0, len = 0;
 public:
-    MyCircularQueue(int k): v(k) {}
+    MyCircularQueue(int k): size(0), maxSize(k), i(0), j(-1), q(vector<int>(k, 0)) {}
+    
     bool enQueue(int value) {
-        if (isFull()) return false;
-        v[(start + len++) % v.size()] = value;
+        if(size == maxSize) return false;
+        if(++j == maxSize) j = 0;
+        q[j] = value;
+        ++size;
         return true;
     }
+    
     bool deQueue() {
-        if (isEmpty()) return false;
-        start = (start + 1) % v.size();
-        --len;
+        if(size == 0) return false;
+        if(++i == maxSize) i = 0;
+        --size;
         return true;
     }
+    
     int Front() {
-        if (isEmpty()) return -1;
-        return v[start];
+        return size == 0 ? -1 : q[i];
     }
+    
     int Rear() {
-        if (isEmpty()) return -1;
-        return v[(start + len - 1) % v.size()];
+        return size == 0 ? -1 : q[j];
     }
+    
     bool isEmpty() {
-        return !len;
+        return size == 0;
     }
+    
     bool isFull() {
-        return len == v.size();
+        return size == maxSize;
     }
+    
+    int size;
+    const int maxSize;
+    int i;
+    int j;
+    vector<int> q;
 };
+
+auto gucciGang = []() {std::ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);return 0;}();
