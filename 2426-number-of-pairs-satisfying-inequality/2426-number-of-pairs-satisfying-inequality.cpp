@@ -1,55 +1,55 @@
-class Solution {
+class Solution 
+{
 public:
-    long long ans = 0;
-    int kk;
-    void merge_sort(vector<int>& v){
-        int n = v.size();
-        if(n > 1){
-            vector<int> left = vector<int>(v.begin(), v.begin() + n/2);
-            vector<int> right = vector<int>(v.begin()+n/2, v.end());
-            merge_sort(left);
-            merge_sort(right);
-            merge(v, left, right);
+
+    long long int count;
+   
+    void checkCount(vector<int>& nums, int start, int mid, int end,int d)
+    {
+
+        
+        int l = start, r = mid + 1;
+        while(l <= mid && r <= end)
+        {
+            if(nums[l]<=(nums[r]+d))  // if (nums[l]<=nums[r]+d) then all values from nums[r] to nums[end] will be greater than or equal to nums[l]
+            {
+                count += (end - r+1);
+                l++;
+            }
+            else      // otherwise we need to increment r so that we can find match for nums[l]
+            {
+                r++;
+            }
         }
-        else return; 
+         // sort all values from start to end
+        sort(nums.begin() + start, nums.begin() + end + 1);  // (Sort using two-pointers for better time complexity)
+        return;
+         
     }
-    void merge(vector<int>& v, vector<int> l, vector<int> r){
-        int now = 0, ll = 0, rr = 0;
-        int good = 0;
-        while(ll < l.size() && rr < r.size()){
-            if(r[rr]+kk >= l[ll]){
-                ans += r.size() - rr;
-                ll++;
-            }else{
-                rr++;
-            }
-            
-        }
-        ll = rr = 0;
-        while(ll < l.size() && rr < r.size()){
-            if(r[rr] > l[ll]){
-                v[now++] = l[ll++];
-            }
-            else{
-                v[now++] = r[rr++];
-            }
-        }
-        while(ll < l.size()){
-            v[now++] = l[ll++];
-        }
-        while(rr < r.size()){
-            v[now++] = r[rr++];
-        }
+    void mergeSort(vector<int>& nums, int start, int end,int d)
+    {
+        if(start == end) 
+            return;
+        
+        int mid = (start + end)/2;
+        mergeSort(nums,start, mid,d);
+        mergeSort(nums,mid+1,end,d);
+        
+        checkCount(nums,start,mid,end,d);
+        return;
+        
     }
-    long long numberOfPairs(vector<int> nums1, vector<int> nums2, int diff) {
-        vector<int> temp;
-        int n = nums1.size();
-        temp = vector<int>(n);
-        kk = diff;
-        for(int i = 0 ; i < n ; i++){
-            temp[i] = nums1[i] - nums2[i];
-        }
-        merge_sort(temp);
-        return ans;
+    long long numberOfPairs(vector<int>& a, vector<int>& b, int d) 
+    {
+        count = 0;
+        int n = a.size();
+        vector<int>c(n);  
+        
+        for(int i=0;i<n;i++)
+        c[i]=a[i]-b[i];               
+			
+        mergeSort(c,0,n-1,d);
+		
+        return count;
     }
 };
