@@ -7,8 +7,7 @@ public:
                 maxi = neededTime[i];
                 while(i < n-1 && colors[i] == colors[i+1]){
                     maxi = max(neededTime[i+1], maxi);
-                    ans += neededTime[i];
-                    i++;
+                    ans += neededTime[i++];
                 }
                 ans += neededTime[i] - maxi;
             }
