@@ -23,7 +23,6 @@ public:
     int col[9];
     int row[9];
     int s_grid[3][3];
-    int grid[9][9];
     const int mask = 511;
     int lowbit(int n){
         return (n & -n);
@@ -32,7 +31,7 @@ public:
         if(i == 9){
             return 1;
         }
-        if(grid[i][j] != 0){
+        if(isdigit(board[i][j])){
             if(find(j==8?i+1:i, j==8?0:j+1, board)){
                 return 1;
             }
@@ -41,7 +40,6 @@ public:
             for(int num = 0 ; nums != 0 ;){
                 num = lowbit(nums);
                 nums ^= num;
-                grid[i][j] = num;
                 col[j] ^= num;
                 row[i] ^= num;
                 s_grid[i/3][j/3] ^= num;
@@ -49,7 +47,6 @@ public:
                 if(find(j==8?i+1:i, j==8?0:j+1, board)){
                     return 1;
                 }
-                grid[i][j] = 0;
                 col[j] ^= num;
                 row[i] ^= num;
                 board[i][j] = '.';
@@ -63,11 +60,11 @@ public:
         For(i, 9){
             For(j,  9){
                 if(isdigit(board[i][j])){
-                    grid[i][j] = 1 << (board[i][j] - '1');
-                    col[j]^= grid[i][j];
-                    row[i]^= grid[i][j];
-                    s_grid[i/3][j/3] ^= grid[i][j];
-                }else grid[i][j] = 0;
+                    int temp = 1 << (board[i][j] - '1');
+                    col[j]^= temp;
+                    row[i]^= temp;
+                    s_grid[i/3][j/3] ^= temp;
+                }
             }
         }
         find(0, 0, board);
