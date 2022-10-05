@@ -12,7 +12,8 @@
 class Solution {
 public:
     TreeNode* createBinaryTree(vector<vector<int>>& d) {
-        unordered_map<int,bool> rot;
+        short int rot[100001];
+        memset(rot, -1, sizeof(rot));
         unordered_map<int,TreeNode*> m;
         int p, c;
         bool left;
@@ -20,7 +21,7 @@ public:
             p = i[0], c = i[1];
             left = i[2];
             rot[c] = 0;
-            if(rot.find(p) == rot.end()) rot[p] = 1;
+            if(rot[p] == -1) rot[p] = 1;
             if(m.find(p) == m.end()){
                 m[p] = new TreeNode(p);   
             }
@@ -31,10 +32,8 @@ public:
                 m[p]->left = m[c];
             }else m[p]->right = m[c];
         }
-        for(auto i : rot){
-            if(i.second){
-                return m[i.first];
-            }
+        for(int i = 0 ; i < 100001 ; i++){
+            if(rot[i] == 1) return m[i];
         }
         return NULL;
     }
