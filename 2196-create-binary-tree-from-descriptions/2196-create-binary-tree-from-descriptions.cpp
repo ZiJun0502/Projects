@@ -14,14 +14,15 @@ public:
     TreeNode* createBinaryTree(vector<vector<int>>& d) {
         unordered_map<int,bool> rot;
         unordered_map<int,TreeNode*> m;
-        for(auto i : d){
-            int p = i[0], c = i[1];
-            bool left = i[2];
+        int p, c;
+        bool left;
+        for(vector<int>& i : d){
+            p = i[0], c = i[1];
+            left = i[2];
             rot[c] = 0;
             if(rot.find(p) == rot.end()) rot[p] = 1;
             if(m.find(p) == m.end()){
                 m[p] = new TreeNode(p);   
-                rot[p] = 1;
             }
             if(m.find(c) == m.end()){
                 m[c] = new TreeNode(c);
