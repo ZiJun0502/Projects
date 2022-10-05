@@ -4,7 +4,6 @@ public:
     #define vvi vector<vi>
     #define For(i, n) for(int i = 0 ; i < n ; i++)
     #define FOR(i, n , m) for(int i = n ; i < m ; i++)
-    #define reset(i) memset(i, 0, sizeof(i));
     int lg(int n){
         switch (n){
             case 1:return 1;
@@ -56,7 +55,6 @@ public:
         return 0;
     }
     void solve(vector<vector<char>>& board){
-
         For(i, 9){
             For(j,  9){
                 if(isdigit(board[i][j])){
