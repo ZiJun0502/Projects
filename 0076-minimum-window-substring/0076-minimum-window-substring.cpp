@@ -27,12 +27,11 @@ public:
             if(T.find(s[i]) != T.end()){
                 last.push({s[i], i});
                 if(l == -1) l = i;
-                //cout << s[i] << ' ' << i << '\n';
             }
             
             if(check(record)){
                 if(i-l < ans){
-                    ans = min(ans, i - l);
+                    ans = i - l;
                     ss = string(s.begin()+l, s.begin()+i+1);
                 }
                 while(!last.empty()){
@@ -43,11 +42,9 @@ public:
                         l = last.front().second;
                     }
                     if(T[j.first] > record[j.first]) break;
-                    else{
-                        if(i-l < ans){
-                            ans = min(ans, i - l);
-                            ss = string(s.begin()+l, s.begin()+i+1);
-                        }
+                    if(i-l < ans){
+                        ans = i - l;
+                        ss = string(s.begin()+l, s.begin()+i+1);
                     }
                 }
             }
