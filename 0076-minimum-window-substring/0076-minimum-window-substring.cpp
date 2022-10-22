@@ -20,28 +20,28 @@ public:
             T[c]++;
         }
         int l = -1;
-        queue<pair<char,int>> last;
+        int pos[n];
+        memset(pos, 0, sizeof(pos));
+        int size = 0;
         int now = 0;
         for(int i = 0 ; i < n ; i++){
             record[s[i]]++;
             if(T.find(s[i]) != T.end()){
-                last.push({s[i], i});
+                pos[size++] = i;
                 if(l == -1) l = i;
             }
-            
             if(check(record)){
                 if(i-l < ans){
                     ans = i - l;
                     ss = string(s.begin()+l, s.begin()+i+1);
                 }
-                while(!last.empty()){
-                    auto j = last.front();
-                    record[j.first]--;
-                    if(last.size() > 1){
-                        last.pop();
-                        l = last.front().second;
+                while(1){
+                    int last = pos[now++];
+                    record[s[last]]--;
+                    if(now < size){
+                        l = pos[now];
                     }
-                    if(T[j.first] > record[j.first]) break;
+                    if(T[s[last]] > record[s[last]]) break;
                     if(i-l < ans){
                         ans = i - l;
                         ss = string(s.begin()+l, s.begin()+i+1);
