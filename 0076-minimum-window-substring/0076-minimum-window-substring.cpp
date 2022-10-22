@@ -35,14 +35,14 @@ public:
                     ans = min(ans, i - l);
                     ss = string(s.begin()+l, s.begin()+i+1);
                 }
-                while(1){
-                    auto& j = last.front();
+                while(!last.empty()){
+                    auto j = last.front();
                     record[j.first]--;
                     if(last.size() > 1){
                         last.pop();
                         l = last.front().second;
                     }
-                    if(!check(record)) break;
+                    if(T[j.first] > record[j.first]) break;
                     else{
                         if(i-l < ans){
                             ans = min(ans, i - l);
