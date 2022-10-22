@@ -20,12 +20,12 @@ public:
             T[c]++;
         }
         int l = -1;
-        vector<pair<char, int>> last;
+        queue<pair<char,int>> last;
         int now = 0;
         for(int i = 0 ; i < n ; i++){
             record[s[i]]++;
             if(T.find(s[i]) != T.end()){
-                last.push_back({s[i], i});
+                last.push({s[i], i});
                 if(l == -1) l = i;
                 //cout << s[i] << ' ' << i << '\n';
             }
@@ -36,12 +36,12 @@ public:
                     ss = string(s.begin()+l, s.begin()+i+1);
                 }
                 while(1){
-                    record[last[now].first]--;
-                    if(now+1 < last.size())
-                    l = last[now+1].second;
-                    else l = last[now].second;
-                    now++;
-                    
+                    auto& j = last.front();
+                    record[j.first]--;
+                    if(last.size() > 1){
+                        last.pop();
+                        l = last.front().second;
+                    }
                     if(!check(record)) break;
                     else{
                         if(i-l < ans){
